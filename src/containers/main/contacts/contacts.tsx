@@ -22,7 +22,7 @@ class Contacts extends React.Component<ContactsScreenProps, ContactsScreenState>
   render() {
     return (
       <View style={screenStyles.ROOT}>
-        <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-9.jpg')} />
+        <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-17.jpg')} />
         <Text>Contacts Page</Text>
       </View>
     )

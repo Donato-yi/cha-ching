@@ -83,6 +83,9 @@ const AppNavigation = StackNavigator(
     },
     main: {
       screen: MainNavigation,
+      navigationOptions: {
+        header: null,
+      },
     },
   },
   {

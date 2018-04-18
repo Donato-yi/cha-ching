@@ -22,7 +22,7 @@ class Home extends React.Component<HomeScreenProps, HomeScreenState> {
   render() {
     return (
       <View style={screenStyles.ROOT}>
-        <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-9.jpg')} />
+        <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-14.jpg')} />
         <Text>Home Page</Text>
       </View>
     )

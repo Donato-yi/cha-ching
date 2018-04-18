@@ -22,7 +22,7 @@ class Profile extends React.Component<ProfileScreenProps, ProfileScreenState> {
   render() {
     return (
       <View style={screenStyles.ROOT}>
-        <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-9.jpg')} />
+        <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-13.jpg')} />
         <Text>Profile Page</Text>
       </View>
     )
