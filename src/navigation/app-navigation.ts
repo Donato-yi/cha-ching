@@ -1,10 +1,11 @@
 import { Animated, Easing } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
-import Launch from '../containers/launch'
-import Login from '../containers/login'
+import LaunchScreen from '../containers/launch'
+import LoginScreen from '../containers/login'
+import ProfileScreen from '../containers/main/profile'
 
-import MainNavigation from './main-navigations'
+import MainNavigation from './main-navigator'
 
 const MyTransitionSpec = {
   duration: 500,
@@ -67,19 +68,22 @@ const TransitionConfiguration = () => {
   }
 }
 
-const AppNavigation = StackNavigator(
+export const AppNavigation = StackNavigator(
   {
     launch: {
-      screen: Launch,
+      screen: LaunchScreen,
       navigationOptions: {
         header: null,
       },
     },
     login: {
-      screen: Login,
+      screen: LoginScreen,
       navigationOptions: {
         header: null,
       },
+    },
+    profile: {
+      screen: ProfileScreen,
     },
     main: {
       screen: MainNavigation,
