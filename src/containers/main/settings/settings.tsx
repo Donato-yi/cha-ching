@@ -2,28 +2,32 @@ import * as React from 'react'
 import { Text, TouchableOpacity, View, Image } from 'react-native'
 import { NavigationParams } from 'react-navigation'
 import { connect } from 'react-redux'
-import * as screenStyles from './profile.styles'
+import Icon from 'react-native-vector-icons/Feather'
 
-export interface ProfileScreenProps {
+import * as screenStyles from './settings.styles'
+
+export interface SettingsScreenProps {
   navigation: NavigationParams
   status: boolean
 }
 
-export interface ProfileScreenState {
+export interface SettingsScreenState {
   isBusy: boolean
 }
 
-class Profile extends React.Component<ProfileScreenProps, ProfileScreenState> {
+class Settings extends React.Component<SettingsScreenProps, SettingsScreenState> {
   constructor(props) {
     super(props)
     this.state = { isBusy: false }
   }
 
   render() {
+    const showtext = typeof React.createElement('input')
     return (
       <View style={screenStyles.ROOT}>
         <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-13.jpg')} />
-        <Text>Profile Screen</Text>
+        <Icon name="home" size={28} style={{ color: 'red' }} />
+        <Text>{showtext}</Text>
       </View>
     )
   }
@@ -35,4 +39,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(Settings)
