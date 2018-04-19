@@ -429,6 +429,12 @@
   version "0.25.22"
   resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.25.22.tgz#394e3aebcce54cba457f837b97ded2d6882015db"
 
+"@types/react-native-collapsible@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@types/react-native-collapsible/-/react-native-collapsible-0.8.2.tgz#644919439931307422b015acd126eb7bed846257"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-native-vector-icons@^4.6.0":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@types/react-native-vector-icons/-/react-native-vector-icons-4.6.0.tgz#121bfcedffca18ffdf25f7db8ab9a8d88c932666"
@@ -5741,6 +5747,12 @@ react-is@^16.3.1:
 react-lifecycles-compat@^1.0.2:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-1.1.4.tgz#fc005c72849b7ed364de20a0f64ff58ebdc2009a"
+
+react-native-collapsible@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/react-native-collapsible/-/react-native-collapsible-0.11.0.tgz#d35fe93813152ca40a6ca4b5e62473dd695dcefd"
+  dependencies:
+    prop-types "^15.5.10"
 
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
