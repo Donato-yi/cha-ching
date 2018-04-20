@@ -5,12 +5,10 @@ import { colors } from '../../../themes'
  * All text will start off looking like this.
  */
 const PRIMARY: TextStyle = {
-  fontFamily: 'montserrat',
   color: colors.white,
   textAlign: 'center',
 }
 const SECONDARY: TextStyle = {
-  fontFamily: 'omnes',
   color: colors.white,
   textAlign: 'center',
 }
