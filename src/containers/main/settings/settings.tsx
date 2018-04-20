@@ -8,7 +8,6 @@ import * as screenStyles from './settings.styles'
 
 export interface SettingsScreenProps {
   navigation: NavigationParams
-  status: boolean
 }
 
 export interface SettingsScreenState {
@@ -33,9 +32,7 @@ class Settings extends React.Component<SettingsScreenProps, SettingsScreenState>
   }
 }
 
-const mapStateToProps = state => ({
-  status: state.app.status,
-})
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({})
 

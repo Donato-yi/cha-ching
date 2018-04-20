@@ -3,7 +3,7 @@ import { StackNavigator } from 'react-navigation'
 
 import LaunchScreen from '../containers/launch'
 import LoginScreen from '../containers/login'
-import ProfileScreen from '../containers/main/profile'
+import ProfileScreen from '../containers/profile'
 
 import MainNavigation from './main-navigator'
 

@@ -13,7 +13,6 @@ import { colors } from '../../../themes'
 
 export interface HomeScreenProps {
   navigation: NavigationParams
-  status: boolean
 }
 
 export interface HomeScreenState {
@@ -58,9 +57,7 @@ class Home extends React.Component<HomeScreenProps, HomeScreenState> {
   }
 }
 
-const mapStateToProps = state => ({
-  status: state.app.status,
-})
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({})
 

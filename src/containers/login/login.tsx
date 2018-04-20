@@ -1,14 +1,12 @@
 import * as React from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
+import { Text, TouchableOpacity, View, Image } from 'react-native'
 import { NavigationParams } from 'react-navigation'
 import { connect } from 'react-redux'
-import AppActions from '../../actions/app'
+import AuthActions from '../../actions/auth'
 import * as screenStyles from './login.styles'
 
 export interface LoginScreenProps {
   navigation: NavigationParams
-  status: boolean
-  loginRequest?: () => void
 }
 
 export interface LoginScreenState {
@@ -20,6 +18,7 @@ class Login extends React.Component<LoginScreenProps, LoginScreenState> {
     super(props)
     this.state = { isBusy: false }
   }
+
   toMain = () => {
     this.props.navigation.navigate('main')
   }
@@ -27,20 +26,39 @@ class Login extends React.Component<LoginScreenProps, LoginScreenState> {
   render() {
     return (
       <View style={screenStyles.ROOT}>
-        <TouchableOpacity onPress={this.toMain}>
-          <Text>TO MAIN</Text>
+        <Image style={screenStyles.backgroundImg} source={require('../../assets/bk-1.jpg')} />
+        <Image style={screenStyles.logoImg} source={require('../../assets/logo.png')} />
+        <View style={{ flex: 1 }} />
+        <TouchableOpacity style={screenStyles.loginFacebook} onPress={this.toMain}>
+          <Text
+            style={{
+              textAlign: 'center',
+              color: 'white',
+              fontWeight: '800',
+            }}
+          >
+            FACEBOOK LOGIN
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={screenStyles.loginEmail} onPress={this.toMain}>
+          <Text
+            style={{
+              textAlign: 'center',
+              color: 'white',
+              fontSize: 12,
+              textDecorationLine: 'underline',
+            }}
+          >
+            Log in with Email
+          </Text>
         </TouchableOpacity>
       </View>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  status: state.app.status,
-})
+const mapStateToProps = state => ({})
 
-const mapDispatchToProps = dispatch => ({
-  loginRequest: () => dispatch(AppActions.loginRequest()),
-})
+const mapDispatchToProps = dispatch => ({})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

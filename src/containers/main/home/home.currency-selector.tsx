@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Collapsible from 'react-native-collapsible'
 
 import { connect } from 'react-redux'
-import AppActions from '../../../actions/app'
+import CurrencyActions from '../../../actions/currency'
 
 import * as screenStyles from './home.styles'
 import { colors } from '../../../themes'

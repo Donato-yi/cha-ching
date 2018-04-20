@@ -6,7 +6,6 @@ import * as screenStyles from './history.styles'
 
 export interface HistoryScreenProps {
   navigation: NavigationParams
-  status: boolean
 }
 
 export interface HistoryScreenState {
@@ -29,9 +28,7 @@ class History extends React.Component<HistoryScreenProps, HistoryScreenState> {
   }
 }
 
-const mapStateToProps = state => ({
-  status: state.app.status,
-})
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({})
 

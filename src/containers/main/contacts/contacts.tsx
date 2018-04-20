@@ -6,7 +6,6 @@ import * as screenStyles from './contacts.styles'
 
 export interface ContactsScreenProps {
   navigation: NavigationParams
-  status: boolean
 }
 
 export interface ContactsScreenState {
@@ -29,9 +28,7 @@ class Contacts extends React.Component<ContactsScreenProps, ContactsScreenState>
   }
 }
 
-const mapStateToProps = state => ({
-  status: state.app.status,
-})
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({})
 
