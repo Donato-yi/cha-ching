@@ -1,14 +1,14 @@
 import { call, put } from 'redux-saga/effects'
 import { NavigationActions } from 'react-navigation'
-import AppActions from '../actions/app'
+import AuthActions from '../actions/auth'
 
-export function* loginRequest(api, action) {
+export function* emailLogin(api, action) {
   // const { payload } = action
   const response = { ok: true }
 
   if (response.ok) {
-    yield put(AppActions.loginSuccess())
+    yield put(AuthActions.emailLoginSuccess())
   } else {
-    yield put(AppActions.loginFailure())
+    yield put(AuthActions.emailLoginFailure())
   }
 }

@@ -3,12 +3,12 @@ import { takeLatest, all } from 'redux-saga/effects'
 /**
  * Types of actions
  */
-import { AppTypes } from '../actions/app'
+import { AuthTypes } from '../actions/auth'
 
 /**
  * Sagas
  */
-import { loginRequest } from './app'
+import { emailLogin } from './auth'
 
 /**
  * API
@@ -23,6 +23,6 @@ const api = () => {}
 export default function* root() {
   yield all([
     // some sagas receive extra parameters in addition to an action
-    takeLatest(AppTypes.LOGIN_REQUEST, loginRequest, api),
+    takeLatest(AuthTypes.EMAIL_LOGIN, emailLogin, api),
   ])
 }
