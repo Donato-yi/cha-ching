@@ -11,11 +11,14 @@ interface HomeTopAreaProps {
 
 const HomeTopArea: React.SFC<HomeTopAreaProps> = (props: HomeTopAreaProps) => {
   return (
-    <View style={screenStyles.topArea}>
-      <TouchableOpacity style={screenStyles.topButton} onPress={() => props.navigateTo('profile')}>
+    <View style={screenStyles.topArea.container}>
+      <TouchableOpacity
+        style={screenStyles.topArea.button}
+        onPress={() => props.navigateTo('profile')}
+      >
         <Icon name="user" size={25} color={colors.weakBlack} />
       </TouchableOpacity>
-      <TouchableOpacity style={screenStyles.topButton}>
+      <TouchableOpacity style={screenStyles.topArea.button}>
         <Icon name="mail" size={25} color={colors.weakBlack} />
       </TouchableOpacity>
     </View>

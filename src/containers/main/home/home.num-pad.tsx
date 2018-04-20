@@ -13,12 +13,13 @@ interface NumPadProps {
 
 const NumPad: React.SFC<NumPadProps> = (props: NumPadProps) => {
   return (
-    <View style={screenStyles.numPad}>
+    <View style={screenStyles.numPad.container}>
       {numpad.map(numbers => (
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around', width: '100%' }}>
+        <View key={Math.random()} style={screenStyles.numPad.row}>
           {numbers.map(number => (
             <TouchableOpacity
-              style={screenStyles.numPadButton}
+              key={Math.random()}
+              style={screenStyles.numPad.button}
               onPress={() => props.onInput(number)}
             >
               <Text>{number}</Text>
