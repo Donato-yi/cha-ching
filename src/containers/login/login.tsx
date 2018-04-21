@@ -20,7 +20,7 @@ class Login extends React.Component<LoginScreenProps, LoginScreenState> {
   }
 
   toMain = () => {
-    this.props.navigation.navigate('main')
+    this.props.navigation.navigate('home')
   }
 
   render() {
