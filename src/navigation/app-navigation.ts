@@ -4,6 +4,10 @@ import { StackNavigator } from 'react-navigation'
 import LaunchScreen from '../containers/launch'
 import LoginScreen from '../containers/login'
 import ProfileScreen from '../containers/profile'
+import HomeScreen from '../containers/main/home'
+import SettingsScreen from '../containers/main/settings'
+import ContactsScreen from '../containers/main/contacts'
+import HistoryScreen from '../containers/main/history'
 
 import MainNavigation from './main-navigator'
 
@@ -85,12 +89,36 @@ export const AppNavigation = StackNavigator(
     profile: {
       screen: ProfileScreen,
     },
-    main: {
-      screen: MainNavigation,
+    home: {
+      screen: HomeScreen,
       navigationOptions: {
         header: null,
       },
     },
+    settings: {
+      screen: SettingsScreen,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    contacts: {
+      screen: ContactsScreen,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    history: {
+      screen: HistoryScreen,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    // main: {
+    //   screen: MainNavigation,
+    //   navigationOptions: {
+    //     header: null,
+    //   },
+    // },
   },
   {
     // Default config for all screens
