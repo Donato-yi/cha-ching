@@ -38,12 +38,23 @@ class Home extends React.Component<HomeScreenProps, HomeScreenState> {
 
   onInput = (key: string) => {
     const { amountToSend } = this.state
-    if (amountToSend === '0') {
-      this.setState({ amountToSend: key })
+    if (key === 'X') {
+      const newAmount = amountToSend.substring(0, amountToSend.length - 1)
+      if (newAmount.length == 0) {
+        this.setState({ amountToSend: '0' })
+      } else {
+        this.setState({ amountToSend: newAmount })
+      }
+      return
     }
-    this.setState({
-      amountToSend: this.state.amountToSend.concat(key),
-    })
+    if (amountToSend === '0') {
+      console.log('amount to send is 0, key is ', key)
+      this.setState({ amountToSend: key })
+    } else {
+      this.setState({
+        amountToSend: this.state.amountToSend.concat(key),
+      })
+    }
   }
 
   switchInputMode = () => {
@@ -54,6 +65,7 @@ class Home extends React.Component<HomeScreenProps, HomeScreenState> {
 
   render() {
     const { viewIndex, amountToSend } = this.state
+    console.log('amount to send is ', amountToSend)
     return (
       <View style={screenStyles.ROOT}>
         <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-14.jpg')} />
