@@ -4,6 +4,7 @@ import { StackNavigator } from 'react-navigation'
 import LaunchScreen from '../containers/launch'
 import LoginScreen from '../containers/login'
 import ProfileScreen from '../containers/profile'
+import WalletsScreen from '../containers/wallet'
 import HomeScreen from '../containers/main/home'
 import SettingsScreen from '../containers/main/settings'
 import ContactsScreen from '../containers/main/contacts'
@@ -112,6 +113,9 @@ export const AppNavigation = StackNavigator(
       navigationOptions: {
         header: null,
       },
+    },
+    wallets: {
+      screen: WalletsScreen,
     },
     // main: {
     //   screen: MainNavigation,
