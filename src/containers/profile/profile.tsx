@@ -25,8 +25,8 @@ class Profile extends React.Component<ProfileScreenProps, ProfileScreenState> {
     confirmPassword: '',
   }
 
-  onSave = () => {
-    this.props.navigation.navigate('Home')
+  navigateTo = (route: string) => {
+    this.props.navigation.navigate(route)
   }
 
   render() {
@@ -56,8 +56,14 @@ class Profile extends React.Component<ProfileScreenProps, ProfileScreenState> {
           onChangeText={confirmPassword => this.setState({ confirmPassword })}
           secureTextEntry
         />
-        <TouchableOpacity style={screenStyles.textInput} onPress={this.onSave}>
+        <TouchableOpacity style={screenStyles.textInput} onPress={() => this.navigateTo('home')}>
           <Text>Save</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={screenStyles.textInput}
+          onPress={() => this.navigateTo('contacts')}
+        >
+          <Text>+ Contacts</Text>
         </TouchableOpacity>
       </View>
     )

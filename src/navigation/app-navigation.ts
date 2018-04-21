@@ -104,9 +104,6 @@ export const AppNavigation = StackNavigator(
     },
     contacts: {
       screen: ContactsScreen,
-      navigationOptions: {
-        header: null,
-      },
     },
     history: {
       screen: HistoryScreen,
