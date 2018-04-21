@@ -44,7 +44,7 @@ class Settings extends React.Component<SettingsScreenProps, SettingsScreenState>
     const { name, username, coins } = this.state
     return (
       <View style={screenStyles.ROOT}>
-        <TopArea />
+        <TopArea navigateTo={this.navigateTo} />
         <Profile name={name} username={username} navigateTo={this.navigateTo} />
         <Coins coins={coins} />
         <Options navigateTo={this.navigateTo} />

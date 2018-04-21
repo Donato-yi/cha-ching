@@ -8,7 +8,7 @@ import * as screenStyles from './settings.styles'
 import { colors } from '../../../themes'
 
 interface TopAreaProps {
-  // navigateTo: (route: string) => void
+  navigateTo: (route: string) => void
 }
 
 const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
@@ -16,7 +16,7 @@ const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
     <View style={screenStyles.topArea.container}>
       <TouchableOpacity
         style={screenStyles.topArea.button}
-        // onPress={() => props.navigateTo('settings')}
+        onPress={() => props.navigateTo('wallets')}
       >
         <Icon name="list" size={25} color={colors.blue} />
       </TouchableOpacity>
