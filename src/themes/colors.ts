@@ -6,7 +6,7 @@ const colors = {
   tintGreen: 'rgb(100,255,100)',
   transparent: 'rgba(0,0,0,0.0)',
   warmGrey: 'rgb(151,151,151)',
-  weakBlack: 'rgba(0,0,0,0.8)',
+  weakBlack: 'rgba(0,0,0,0.2)',
   weakWhite: 'rgba(255,255,255,0.2)',
   white: 'rgb(255,255,255)',
   whiteBlue: 'rgb(241,249,255)',
