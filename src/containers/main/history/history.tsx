@@ -1,8 +1,20 @@
 import * as React from 'react'
-import { Text, TouchableOpacity, View, Image } from 'react-native'
+import { TouchableOpacity, View, ScrollView } from 'react-native'
 import { NavigationParams } from 'react-navigation'
 import { connect } from 'react-redux'
+import Icon from 'react-native-vector-icons/Feather'
+
+import { Text } from '../../../components'
+import Cell from './history.cell'
+
 import * as screenStyles from './history.styles'
+
+const data = {
+  name: 'Peter Krieg',
+  address: 'aowia9w8eug9q8234j9ajw30f',
+  amount: '123456.789',
+  wallet: 'Bitcoin',
+}
 
 export interface HistoryScreenProps {
   navigation: NavigationParams
@@ -21,8 +33,30 @@ class History extends React.Component<HistoryScreenProps, HistoryScreenState> {
   render() {
     return (
       <View style={screenStyles.ROOT}>
-        <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-9.jpg')} />
-        <Text>History Page</Text>
+        <View style={screenStyles.overlay}>
+          <ScrollView>
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+            <Cell {...data} />
+          </ScrollView>
+        </View>
       </View>
     )
   }
