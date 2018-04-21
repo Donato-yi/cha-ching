@@ -39,3 +39,20 @@ export const loginEmail: ViewStyle = {
   marginBottom: 80,
   borderRadius: 8,
 }
+
+export const text: {
+  facebook: TextStyle
+  email: TextStyle,
+} = {
+  facebook: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: '800',
+  },
+  email: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 12,
+    textDecorationLine: 'underline',
+  },
+}

@@ -30,27 +30,10 @@ class Login extends React.Component<LoginScreenProps, LoginScreenState> {
         <Image style={screenStyles.logoImg} source={require('../../assets/logo.png')} />
         <View style={{ flex: 1 }} />
         <TouchableOpacity style={screenStyles.loginFacebook} onPress={this.toMain}>
-          <Text
-            style={{
-              textAlign: 'center',
-              color: 'white',
-              fontWeight: '800',
-            }}
-          >
-            FACEBOOK LOGIN
-          </Text>
+          <Text style={screenStyles.text.facebook}>FACEBOOK LOGIN</Text>
         </TouchableOpacity>
         <TouchableOpacity style={screenStyles.loginEmail} onPress={this.toMain}>
-          <Text
-            style={{
-              textAlign: 'center',
-              color: 'white',
-              fontSize: 12,
-              textDecorationLine: 'underline',
-            }}
-          >
-            Log in with Email
-          </Text>
+          <Text style={screenStyles.text.email}>Log in with Email</Text>
         </TouchableOpacity>
       </View>
     )

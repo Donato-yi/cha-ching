@@ -8,7 +8,6 @@ exports[`Keyboard component renders correctly 1`] = `
   style={
     Object {
       "color": "rgb(255,255,255)",
-      "fontFamily": "montserrat",
       "fontSize": 18,
       "textAlign": "center",
     }
