@@ -1,8 +1,8 @@
 import { createReducer } from 'reduxsauce'
-import Immutable from 'seamless-immutable'
+import { from } from 'seamless-immutable'
 import { AuthTypes } from '../actions/auth'
 
-const initialState = Immutable({
+const initialState = from({
   status: '', // done, pending, error
 })
 
