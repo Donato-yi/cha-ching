@@ -31,6 +31,31 @@ const contacts = [
     name: 'Test User 5',
     address: 'a098g7as90dg6a9s87dg6a89s7',
   },
+  {
+    id: 1,
+    name: 'Test User 1',
+    address: 'a098g7as90dg6a9s87dg6a89s7',
+  },
+  {
+    id: 2,
+    name: 'Test User 2',
+    address: 'a098g7as90dg6a9s87dg6a89s7',
+  },
+  {
+    id: 3,
+    name: 'Test User 3',
+    address: 'a098g7as90dg6a9s87dg6a89s7',
+  },
+  {
+    id: 4,
+    name: 'Test User 4',
+    address: 'a098g7as90dg6a9s87dg6a89s7',
+  },
+  {
+    id: 5,
+    name: 'Test User 5',
+    address: 'a098g7as90dg6a9s87dg6a89s7',
+  },
 ]
 
 interface ContactsProps {}
@@ -39,10 +64,10 @@ const Contacts: React.SFC<ContactsProps> = (props: ContactsProps) => {
   return (
     <View style={screenStyles.contacts.container}>
       <View style={screenStyles.contacts.searchBox}>
-        <TextInput />
+        <TextInput style={screenStyles.contacts.searchInput} />
         <Icon name="search" size={18} color={colors.warmGrey} />
       </View>
-      <ScrollView>
+      <ScrollView style={{ paddingHorizontal: 15 }}>
         {contacts.map(user => (
           <View key={Math.random()} style={screenStyles.contacts.userContainer}>
             <View style={screenStyles.contacts.avatar}>
@@ -54,6 +79,7 @@ const Contacts: React.SFC<ContactsProps> = (props: ContactsProps) => {
             </View>
           </View>
         ))}
+        <View style={{ height: 60 }} />
       </ScrollView>
     </View>
   )

@@ -1,6 +1,8 @@
 import * as React from 'react'
-import { TouchableOpacity, View, Text } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
+
+import { Text } from '../../../components'
 
 import * as screenStyles from './home.styles'
 import { colors } from '../../../themes'
@@ -22,7 +24,7 @@ const NumPad: React.SFC<NumPadProps> = (props: NumPadProps) => {
               style={screenStyles.numPad.button}
               onPress={() => props.onInput(number)}
             >
-              <Text>{number}</Text>
+              <Text preset="secondaryLarge" text={number} />
             </TouchableOpacity>
           ))}
         </View>

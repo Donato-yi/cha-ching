@@ -14,12 +14,12 @@ const HomeTopArea: React.SFC<HomeTopAreaProps> = (props: HomeTopAreaProps) => {
     <View style={screenStyles.topArea.container}>
       <TouchableOpacity
         style={screenStyles.topArea.button}
-        onPress={() => props.navigateTo('profile')}
+        onPress={() => props.navigateTo('settings')}
       >
-        <Icon name="user" size={25} color={colors.weakBlack} />
+        <Icon name="user" size={20} color={colors.white} />
       </TouchableOpacity>
       <TouchableOpacity style={screenStyles.topArea.button}>
-        <Icon name="mail" size={25} color={colors.weakBlack} />
+        <Icon name="mail" size={20} color={colors.white} />
       </TouchableOpacity>
     </View>
   )

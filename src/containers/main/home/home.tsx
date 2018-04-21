@@ -1,13 +1,15 @@
 import * as React from 'react'
-import { Text, TouchableOpacity, View, Image } from 'react-native'
+import { TouchableOpacity, View, Image } from 'react-native'
 import { NavigationParams } from 'react-navigation'
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Collapisble from 'react-native-collapsible'
+import ScrollableTabView from 'react-native-scrollable-tab-view'
 
 import * as screenStyles from './home.styles'
 import { colors } from '../../../themes'
 
+import { Text } from '../../../components'
 import TopArea from './home.top-area'
 import CurrencySelector from './home.currency-selector'
 import NumPad from './home.num-pad'
@@ -19,14 +21,14 @@ export interface HomeScreenProps {
 
 export interface HomeScreenState {
   isBusy: boolean
-  inputMode: boolean
+  viewIndex: number
   amountToSend: string
 }
 
 class Home extends React.Component<HomeScreenProps, HomeScreenState> {
   state = {
     isBusy: false,
-    inputMode: true,
+    viewIndex: 0,
     amountToSend: '0',
   }
 
@@ -46,32 +48,34 @@ class Home extends React.Component<HomeScreenProps, HomeScreenState> {
 
   switchInputMode = () => {
     this.setState({
-      inputMode: !this.state.inputMode,
+      viewIndex: Math.abs(1 - this.state.viewIndex),
     })
   }
 
   render() {
-    const { inputMode, amountToSend } = this.state
+    const { viewIndex, amountToSend } = this.state
     return (
       <View style={screenStyles.ROOT}>
         <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-14.jpg')} />
         <TopArea navigateTo={this.navigate} />
         <Text style={screenStyles.amountToSend}>$ {amountToSend}</Text>
         <CurrencySelector />
-        <Collapisble collapsed={!inputMode}>
+        <ScrollableTabView
+          style={screenStyles.container}
+          onChangeTab={index => this.setState({ viewIndex: index.i })}
+          renderTabBar={() => <View />}
+          page={viewIndex}
+        >
           <View style={screenStyles.childView}>
             <NumPad onInput={this.onInput} />
             <TouchableOpacity style={screenStyles.sendButton} onPress={this.switchInputMode}>
-              <Icon name="logo-bitcoin" size={25} color={colors.white} />
-              <Text style={{ color: colors.white, fontSize: 25 }}> Send </Text>
+              <Text preset="primaryMedium" text="SEND TO" />
             </TouchableOpacity>
           </View>
-        </Collapisble>
-        <Collapisble collapsed={inputMode}>
           <View style={screenStyles.childView}>
             <Contacts />
           </View>
-        </Collapisble>
+        </ScrollableTabView>
       </View>
     )
   }
