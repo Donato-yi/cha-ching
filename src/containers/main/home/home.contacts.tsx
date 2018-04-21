@@ -65,7 +65,7 @@ const Contacts: React.SFC<ContactsProps> = (props: ContactsProps) => {
     <View style={screenStyles.contacts.container}>
       <View style={screenStyles.contacts.searchBox}>
         <TextInput style={screenStyles.contacts.searchInput} />
-        <Icon name="search" size={18} color={colors.warmGrey} />
+        <Icon name="search" size={18} color={colors.whiteBlue} />
       </View>
       <ScrollView style={{ paddingHorizontal: 15 }}>
         {contacts.map(user => (

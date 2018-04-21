@@ -51,6 +51,13 @@ class CurrencySelector extends React.PureComponent<CurrencySelectorProps, Curren
     })
   }
 
+  setCurrency = (currency: { name: string; id: string | number; iconName: string }) => {
+    this.setState({
+      collapsed: true,
+      currency,
+    })
+  }
+
   render() {
     const { collapsed, currency } = this.state
     return (
@@ -64,7 +71,7 @@ class CurrencySelector extends React.PureComponent<CurrencySelectorProps, Curren
             <TouchableOpacity
               key={currency.name}
               style={screenStyles.currencySelector.selector}
-              onPress={this.toggle}
+              onPress={() => this.setCurrency(currency)}
             >
               <Icon name={currency.iconName} size={20} color={colors.black} />
               <Text>{currency.name}</Text>
