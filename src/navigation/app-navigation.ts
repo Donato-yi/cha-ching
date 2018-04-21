@@ -110,9 +110,6 @@ export const AppNavigation = StackNavigator(
     },
     history: {
       screen: HistoryScreen,
-      navigationOptions: {
-        header: null,
-      },
     },
     wallets: {
       screen: WalletsScreen,

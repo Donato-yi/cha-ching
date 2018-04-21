@@ -18,7 +18,10 @@ const HomeTopArea: React.SFC<HomeTopAreaProps> = (props: HomeTopAreaProps) => {
       >
         <Icon name="user" size={20} color={colors.white} />
       </TouchableOpacity>
-      <TouchableOpacity style={screenStyles.topArea.button}>
+      <TouchableOpacity
+        style={screenStyles.topArea.button}
+        onPress={() => props.navigateTo('history')}
+      >
         <Icon name="mail" size={20} color={colors.white} />
       </TouchableOpacity>
     </View>
