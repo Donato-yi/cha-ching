@@ -1,4 +1,5 @@
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native'
+import colors from '../../../themes/colors'
 
 export const ROOT: ViewStyle = {
   flex: 1,
@@ -14,11 +15,32 @@ export const backgroundImg: ImageStyle = {
   resizeMode: 'cover',
 }
 
+export const topArea: {
+  container: ViewStyle
+  button: ViewStyle,
+} = {
+  container: {
+    width: '100%',
+    height: 40,
+    marginTop: 40,
+    paddingHorizontal: 15,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    height: 40,
+    marginLeft: 'auto',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+}
+
 export const logoImg: ImageStyle = {
   width: 150,
   height: 150,
   justifyContent: 'center',
-  marginTop: 150,
+  marginTop: 100,
   resizeMode: 'stretch',
   borderRadius: 40,
 }

@@ -2,14 +2,14 @@ import * as React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
-import * as screenStyles from './home.styles'
+import * as screenStyles from './transfer.styles'
 import { colors } from '../../../themes'
 
-interface HomeTopAreaProps {
+interface TransferTopAreaProps {
   navigateTo: (route: string) => void
 }
 
-const HomeTopArea: React.SFC<HomeTopAreaProps> = (props: HomeTopAreaProps) => {
+const TransferTopArea: React.SFC<TransferTopAreaProps> = (props: TransferTopAreaProps) => {
   return (
     <View style={screenStyles.topArea.container}>
       <TouchableOpacity
@@ -28,4 +28,4 @@ const HomeTopArea: React.SFC<HomeTopAreaProps> = (props: HomeTopAreaProps) => {
   )
 }
 
-export default HomeTopArea
+export default TransferTopArea

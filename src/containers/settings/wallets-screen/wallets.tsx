@@ -6,10 +6,10 @@ import { from, ImmutableArray } from 'seamless-immutable'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Collapsible from 'react-native-collapsible'
 
-import { Text } from '../../components'
+import { Text } from '../../../components'
 
 import * as screenStyles from './wallets.styles'
-import { colors } from '../../themes'
+import { colors } from '../../../themes'
 
 export interface walletsScreenProps {
   navigation: NavigationParams

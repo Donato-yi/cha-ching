@@ -7,7 +7,7 @@ import { merge } from 'ramda'
 
 import CurrencyActions from '../../../actions/currency'
 
-import * as screenStyles from './home.styles'
+import * as screenStyles from './transfer.styles'
 import { colors } from '../../../themes'
 
 const currencies = [

@@ -1,6 +1,6 @@
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native'
 
-import colors from '../../themes/colors'
+import colors from '../../../themes/colors'
 
 export const ROOT: ViewStyle = {
   flex: 1,
@@ -33,6 +33,6 @@ export const textInput: ViewStyle = {
   padding: 10,
   borderRadius: 5,
   borderWidth: 2,
-  borderColor: colors.weakBlack,
-  backgroundColor: colors.white,
+  borderColor: colors.weakWhite,
+  backgroundColor: colors.weakBlack,
 }

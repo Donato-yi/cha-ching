@@ -1,5 +1,5 @@
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native'
-import colors from '../../themes/colors'
+import colors from '../../../themes/colors'
 
 export const ROOT: ViewStyle = {
   flex: 1,

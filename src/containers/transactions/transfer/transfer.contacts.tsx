@@ -2,7 +2,7 @@ import * as React from 'react'
 import { TouchableOpacity, View, Text, ScrollView, TextInput } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
-import * as screenStyles from './home.styles'
+import * as screenStyles from './transfer.styles'
 import { colors } from '../../../themes'
 
 const contacts = [

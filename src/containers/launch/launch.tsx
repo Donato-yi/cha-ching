@@ -7,8 +7,12 @@ export interface LaunchScreenProps {
   navigation: NavigationParams
 }
 
+/* TODO(Donato): we do instructions here, step by step guide with images and slides
+ *               instructions can go after all UI flows are built
+ */
+
 const Launch: React.SFC<LaunchScreenProps> = (props: LaunchScreenProps) => {
-  setTimeout(() => props.navigation.navigate('login'), 1000)
+  setTimeout(() => props.navigation.navigate('loginFlow'), 3000)
 
   return (
     <View style={screenStyles.ROOT}>

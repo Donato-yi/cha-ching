@@ -57,7 +57,7 @@ class Contacts extends React.Component<ContactsScreenProps, ContactsScreenState>
   }
 
   navigateTo = (route: string) => {
-    this.props.navigation.nativage(route)
+    this.props.navigation.navigate(route)
   }
 
   getSections = () => {

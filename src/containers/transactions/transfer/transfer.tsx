@@ -6,26 +6,26 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Collapisble from 'react-native-collapsible'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 
-import * as screenStyles from './home.styles'
+import * as screenStyles from './transfer.styles'
 import { colors } from '../../../themes'
 
 import { Text } from '../../../components'
-import TopArea from './home.top-area'
-import CurrencySelector from './home.currency-selector'
-import NumPad from './home.num-pad'
-import Contacts from './home.contacts'
+import TopArea from './transfer.top-area'
+import CurrencySelector from './transfer.currency-selector'
+import NumPad from './transfer.num-pad'
+import Contacts from './transfer.contacts'
 
-export interface HomeScreenProps {
+export interface TransferScreenProps {
   navigation: NavigationParams
 }
 
-export interface HomeScreenState {
+export interface TransferScreenState {
   isBusy: boolean
   viewIndex: number
   amountToSend: string
 }
 
-class Home extends React.Component<HomeScreenProps, HomeScreenState> {
+class Transfer extends React.Component<TransferScreenProps, TransferScreenState> {
   state = {
     isBusy: false,
     viewIndex: 0,
@@ -97,4 +97,4 @@ const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Transfer)
