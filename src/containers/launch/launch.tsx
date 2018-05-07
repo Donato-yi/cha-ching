@@ -12,7 +12,7 @@ export interface LaunchScreenProps {
  */
 
 const Launch: React.SFC<LaunchScreenProps> = (props: LaunchScreenProps) => {
-  setTimeout(() => props.navigation.navigate('loginFlow'), 3000)
+  setTimeout(() => props.navigation.navigate('loginStack'), 3000)
 
   return (
     <View style={screenStyles.ROOT}>

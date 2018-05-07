@@ -35,11 +35,14 @@ class Login extends React.Component<LoginScreenProps, LoginScreenState> {
         <View style={{ flex: 1 }} />
         <TouchableOpacity
           style={screenStyles.loginFacebook}
-          onPress={() => this.navigateTo('home')}
+          onPress={() => this.navigateTo('transactionStack')}
         >
           <Text text="FACEBOOK LOGIN" style={screenStyles.text.facebook} />
         </TouchableOpacity>
-        <TouchableOpacity style={screenStyles.loginEmail} onPress={() => this.navigateTo('home')}>
+        <TouchableOpacity
+          style={screenStyles.loginEmail}
+          onPress={() => this.navigateTo('transactionStack')}
+        >
           <Text text="Log in with Email" style={screenStyles.text.email} />
         </TouchableOpacity>
       </View>

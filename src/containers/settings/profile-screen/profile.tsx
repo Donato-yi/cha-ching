@@ -33,7 +33,7 @@ class Profile extends React.Component<ProfileScreenProps, ProfileScreenState> {
     const { email, password, newPassword, confirmPassword } = this.state
     return (
       <View style={screenStyles.ROOT}>
-        <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-13.jpg')} />
+        <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-14.jpg')} />
         <Text style={screenStyles.email}>{email}</Text>
         <TextInput
           style={screenStyles.textInput}

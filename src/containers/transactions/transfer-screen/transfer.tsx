@@ -48,7 +48,6 @@ class Transfer extends React.Component<TransferScreenProps, TransferScreenState>
       return
     }
     if (amountToSend === '0') {
-      console.log('amount to send is 0, key is ', key)
       this.setState({ amountToSend: key })
     } else {
       this.setState({
@@ -65,7 +64,6 @@ class Transfer extends React.Component<TransferScreenProps, TransferScreenState>
 
   render() {
     const { viewIndex, amountToSend } = this.state
-    console.log('amount to send is ', amountToSend)
     return (
       <View style={screenStyles.ROOT}>
         <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-14.jpg')} />

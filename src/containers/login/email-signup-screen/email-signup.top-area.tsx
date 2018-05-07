@@ -2,7 +2,7 @@ import * as React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
-import * as screenStyles from './login.styles'
+import * as screenStyles from './email-signup.styles'
 import { Text } from '../../../components'
 import { colors } from '../../../themes'
 
@@ -15,10 +15,9 @@ const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
     <View style={screenStyles.topArea.container}>
       <TouchableOpacity
         style={screenStyles.topArea.button}
-        onPress={() => props.navigateTo('chooseMethod')}
+        onPress={() => props.navigateTo('back')}
       >
-        <Text text="SIGN UP" preset="secondaryMedium" />
-        {/* <Icon name="plus" size={20} color={colors.whiteBlue} /> */}
+        <Icon name="chevron-left" size={30} color={colors.whiteBlue} />
       </TouchableOpacity>
     </View>
   )
