@@ -3,6 +3,7 @@ import { TouchableOpacity, View, Image, TextInput, ScrollView } from 'react-nati
 import { NavigationParams } from 'react-navigation'
 import { connect } from 'react-redux'
 import { TextField } from 'react-native-material-textfield'
+import CheckBox from 'react-native-check-box'
 
 import { Text } from '../../../components'
 import TopArea from './email-signup.top-area'
@@ -19,6 +20,7 @@ export interface SignUpScreenState {
   email: string
   password: string
   confirmPassword: string
+  hasAgreedPrivacy: boolean
 }
 
 class SignUp extends React.Component<SignUpScreenProps, SignUpScreenState> {
@@ -29,6 +31,7 @@ class SignUp extends React.Component<SignUpScreenProps, SignUpScreenState> {
     email: '',
     password: '',
     confirmPassword: '',
+    hasAgreedPrivacy: false,
   }
 
   navigateTo = (route: string) => {
@@ -40,12 +43,15 @@ class SignUp extends React.Component<SignUpScreenProps, SignUpScreenState> {
   }
 
   render() {
-    const { firstname, lastname, email, password, confirmPassword } = this.state
+    const { firstname, lastname, email, password, confirmPassword, hasAgreedPrivacy } = this.state
     return (
       <View style={screenStyles.ROOT}>
         {/* <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-14.jpg')} /> */}
         <TopArea navigateTo={this.navigateTo} />
-        <ScrollView style={screenStyles.container}>
+        <ScrollView
+          style={screenStyles.container}
+          contentContainerStyle={screenStyles.contentContainer}
+        >
           <TextField
             label="First Name"
             value={firstname}
@@ -81,15 +87,20 @@ class SignUp extends React.Component<SignUpScreenProps, SignUpScreenState> {
           <TouchableOpacity
             style={screenStyles.sendButton}
             onPress={() => this.navigateTo('verify')}
+            disabled={!hasAgreedPrivacy}
           >
             <Text text="Sign Up" />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={screenStyles.sendButton}
-            onPress={() => this.navigateTo('privayAndPolicy')}
-          >
-            <Text preset="secondaryTiny" text="Privacy and Policy" />
-          </TouchableOpacity>
+          <View style={screenStyles.checkButton}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <CheckBox
+                checkBoxColor="rgba(255,255,255,0.87)"
+                isChecked={hasAgreedPrivacy}
+                onClick={() => this.setState({ hasAgreedPrivacy: !hasAgreedPrivacy })}
+              />
+              <Text preset="secondaryTiny" text="Privacy and Policy" />
+            </View>
+          </View>
         </ScrollView>
       </View>
     )

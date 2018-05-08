@@ -1,6 +1,6 @@
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native'
-
 import colors from '../../../themes/colors'
+import DEVICE_RESOLUTION from '../../../themes/dimensions'
 
 export const ROOT: ViewStyle = {
   flex: 1,
@@ -12,6 +12,11 @@ export const container: ViewStyle = {
   flex: 1,
   width: '100%',
   padding: 15,
+}
+
+export const contentContainer: ViewStyle = {
+  width: '100%',
+  minHeight: DEVICE_RESOLUTION.height - 130,
 }
 
 export const backgroundImg: ImageStyle = {
@@ -51,4 +56,16 @@ export const textInputColors = {
 
 export const sendButton: ViewStyle = {
   marginTop: 10,
+}
+
+export const checkButton: ViewStyle = {
+  width: '100%',
+  flex: 1,
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+}
+
+export const checkButtonTextStyle: TextStyle = {
+  fontSize: 10,
+  color: colors.text,
 }
