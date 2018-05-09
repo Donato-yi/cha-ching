@@ -1,19 +1,22 @@
 import { StackNavigator } from 'react-navigation'
 
-import InviteFriendsScreen from '../containers/contacts/invite-friends-screen'
+import InviteFriendScreen from '../containers/contacts/invite-friend-screen'
 import FindFriendsScreen from '../containers/contacts/find-friends-screen'
 import ContactsScreen from '../containers/contacts/contacts-screen'
+import ConnectContactsScreen from '../containers/contacts/connect-contacts-screen'
 
-export const LoginNavigator = StackNavigator({
-  invite: {
-    screen: InviteFriendsScreen,
+export const LoginNavigator = StackNavigator(
+  {
+    contacts: { screen: ContactsScreen },
+    connectContacts: { screen: ConnectContactsScreen },
+    inviteFriend: { screen: InviteFriendScreen },
+    findFriends: { screen: FindFriendsScreen },
   },
-  find: {
-    screen: FindFriendsScreen,
+  {
+    navigationOptions: {
+      header: null,
+    },
   },
-  contacts: {
-    screen: ContactsScreen,
-  },
-})
+)
 
 export default LoginNavigator
