@@ -22,6 +22,7 @@
     "react-native-check-box": "^2.1.0",
     "react-native-collapsible": "^0.11.0",
     "react-native-confirmation-code-input": "^1.0.4",
+    "react-native-image-picker": "^0.26.7",
     "react-native-material-textfield": "^0.12.0",
     "react-native-phone-input": "^0.2.1",
     "react-native-scrollable-tab-view": "^0.8.0",
