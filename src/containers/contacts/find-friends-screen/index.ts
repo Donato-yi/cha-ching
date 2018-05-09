@@ -1,2 +1,2 @@
-import Login from './login'
-export default Login
+import FindFriendsScreen from './find-friends'
+export default FindFriendsScreen
