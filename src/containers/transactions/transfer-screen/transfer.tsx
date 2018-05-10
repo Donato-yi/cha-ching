@@ -23,6 +23,7 @@ export interface TransferScreenState {
   isBusy: boolean
   viewIndex: number
   amountToSend: string
+  searchText: string
 }
 
 class Transfer extends React.Component<TransferScreenProps, TransferScreenState> {
@@ -30,13 +31,14 @@ class Transfer extends React.Component<TransferScreenProps, TransferScreenState>
     isBusy: false,
     viewIndex: 0,
     amountToSend: '0',
+    searchText: '',
   }
 
   navigate = (route: string) => {
     this.props.navigation.navigate(route)
   }
 
-  onInput = (key: string) => {
+  onKeyInput = (key: string) => {
     const { amountToSend } = this.state
     if (key === 'X') {
       const newAmount = amountToSend.substring(0, amountToSend.length - 1)
@@ -56,17 +58,24 @@ class Transfer extends React.Component<TransferScreenProps, TransferScreenState>
     }
   }
 
-  switchInputMode = () => {
+  onSelectRecipient = () => {
+    this.props.navigation.navigate('selectWallet')
+  }
+
+  switchScreen = () => {
     this.setState({
       viewIndex: Math.abs(1 - this.state.viewIndex),
     })
   }
 
   render() {
-    const { viewIndex, amountToSend } = this.state
+    const { viewIndex, amountToSend, searchText } = this.state
     return (
       <View style={screenStyles.ROOT}>
-        <Image style={screenStyles.backgroundImg} source={require('../../../assets/bk-14.jpg')} />
+        {/* <Image
+          style={screenStyles.backgroundImg}
+          source={require('../../../assets/bk-14.jpg')}
+        /> */}
         <TopArea navigateTo={this.navigate} />
         <Text style={screenStyles.amountToSend}>$ {amountToSend}</Text>
         <CurrencySelector />
@@ -77,13 +86,17 @@ class Transfer extends React.Component<TransferScreenProps, TransferScreenState>
           page={viewIndex}
         >
           <View style={screenStyles.childView}>
-            <NumPad onInput={this.onInput} />
-            <TouchableOpacity style={screenStyles.sendButton} onPress={this.switchInputMode}>
+            <NumPad onInput={this.onKeyInput} />
+            <TouchableOpacity style={screenStyles.sendButton} onPress={this.switchScreen}>
               <Text preset="primaryMedium" text="SEND TO" />
             </TouchableOpacity>
           </View>
           <View style={screenStyles.childView}>
-            <Contacts />
+            <Contacts
+              searchText={searchText}
+              updateSearchText={searchText => this.setState({ searchText })}
+              onSelectRecipient={this.onSelectRecipient}
+            />
           </View>
         </ScrollableTabView>
       </View>

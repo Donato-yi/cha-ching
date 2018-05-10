@@ -1,40 +1,20 @@
 import * as React from 'react'
-import { TouchableOpacity, View, Text } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
+import { TouchableOpacity, View, Image } from 'react-native'
 import Collapsible from 'react-native-collapsible'
 import { connect } from 'react-redux'
 import { merge } from 'ramda'
 
+import { Text } from '../../../components'
 import CurrencyActions from '../../../actions/currency'
 
-import * as screenStyles from './transfer.styles'
+import { coins, Coin } from '../../../config/coins'
 import { colors } from '../../../themes'
 
-const currencies = [
-  {
-    name: 'Bitcoin',
-    id: 1,
-    iconName: 'logo-bitcoin',
-  },
-  {
-    name: 'Etherum',
-    id: 1,
-    iconName: 'logo-bitcoin',
-  },
-  {
-    name: 'Lightcoin',
-    id: 1,
-    iconName: 'logo-bitcoin',
-  },
-]
+import * as screenStyles from './transfer.styles'
 
 interface CurrencySelectorState {
   collapsed: boolean
-  currency: {
-    name: string
-    id: string | number
-    iconName: string,
-  }
+  selectedCoin: Coin
 }
 
 interface CurrencySelectorProps {}
@@ -42,7 +22,7 @@ interface CurrencySelectorProps {}
 class CurrencySelector extends React.PureComponent<CurrencySelectorProps, CurrencySelectorState> {
   state = {
     collapsed: true,
-    currency: currencies[0],
+    selectedCoin: coins[0],
   }
 
   toggle = () => {
@@ -51,30 +31,38 @@ class CurrencySelector extends React.PureComponent<CurrencySelectorProps, Curren
     })
   }
 
-  setCurrency = (currency: { name: string; id: string | number; iconName: string }) => {
+  selectCoin = (coin: Coin) => {
     this.setState({
       collapsed: true,
-      currency,
+      selectedCoin: coin,
     })
   }
 
   render() {
-    const { collapsed, currency } = this.state
+    const { collapsed, selectedCoin } = this.state
     return (
       <View style={screenStyles.currencySelector.container}>
         <TouchableOpacity style={screenStyles.currencySelector.selector} onPress={this.toggle}>
-          <Icon name={currency.iconName} size={20} color={colors.black} />
-          <Text>{currency.name}</Text>
+          <Image style={screenStyles.currencySelector.coinAvatar} source={selectedCoin.avatar} />
+          <Text
+            style={screenStyles.currencySelector.coinName}
+            preset="secondarySmall"
+            text={selectedCoin.name}
+          />
         </TouchableOpacity>
         <Collapsible collapsed={collapsed} collapsedHeight={0}>
-          {currencies.map((currency, index) => (
+          {coins.map((coin, index) => (
             <TouchableOpacity
-              key={currency.name}
+              key={Math.random()}
               style={screenStyles.currencySelector.selector}
-              onPress={() => this.setCurrency(currency)}
+              onPress={() => this.selectCoin(coin)}
             >
-              <Icon name={currency.iconName} size={20} color={colors.black} />
-              <Text>{currency.name}</Text>
+              <Image style={screenStyles.currencySelector.coinAvatar} source={coin.avatar} />
+              <Text
+                style={screenStyles.currencySelector.coinName}
+                preset="secondarySmall"
+                text={coin.name}
+              />
             </TouchableOpacity>
           ))}
         </Collapsible>

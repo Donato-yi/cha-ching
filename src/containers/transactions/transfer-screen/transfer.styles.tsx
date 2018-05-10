@@ -3,7 +3,7 @@ import colors from '../../../themes/colors'
 
 export const ROOT: ViewStyle = {
   flex: 1,
-  // alignItems: 'center',
+  backgroundColor: colors.green,
 }
 
 export const backgroundImg: ImageStyle = {
@@ -54,24 +54,35 @@ export const amountToSend: TextStyle = {
 
 export const currencySelector: {
   container: ViewStyle
-  selector: ViewStyle,
+  selector: ViewStyle
+  coinAvatar: ImageStyle
+  coinName: TextStyle,
 } = {
   container: {
-    width: 200,
+    width: 150,
     alignSelf: 'center',
-    paddingHorizontal: 15,
+    paddingHorizontal: 10,
     alignItems: 'center',
-    borderRadius: 16,
+    borderRadius: 14,
     borderWidth: 2,
     borderColor: colors.weakWhite,
     backgroundColor: colors.weakWhite,
   },
   selector: {
-    width: 180,
-    height: 30,
+    width: 140,
+    height: 25,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  coinAvatar: {
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    resizeMode: 'stretch',
+  },
+  coinName: {
+    flex: 1,
   },
 }
 
@@ -124,9 +135,7 @@ export const sendButton: ViewStyle = {
 export const contacts: {
   container: ViewStyle
   searchBox: ViewStyle
-  searchInput: ViewStyle
-  userContainer: ViewStyle
-  avatar: ViewStyle,
+  searchInput: ViewStyle,
 } = {
   container: {
     width: '100%',
@@ -149,25 +158,73 @@ export const contacts: {
     flex: 1,
     height: 20,
   },
-  userContainer: {
+}
+
+export const searchField: ViewStyle = {
+  paddingHorizontal: 15,
+  marginBottom: 10,
+}
+
+export const textInputColors = {
+  textColor: colors.text,
+  tintColor: colors.text,
+  errorColor: colors.alizarin,
+  baseColor: colors.clouds,
+}
+
+export const cell: {
+  container: ViewStyle
+  avatar: ViewStyle
+  userInfo: ViewStyle
+  name: TextStyle
+  walletsContainer: ViewStyle
+  wallet: ImageStyle
+  moreButton: ViewStyle,
+} = {
+  container: {
     flexDirection: 'row',
-    width: '100%',
-    marginVertical: 5,
-    padding: 10,
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: colors.weakBlack,
-    backgroundColor: colors.weakBlack,
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderColor: colors.weakWhite,
   },
   avatar: {
-    width: 40,
-    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 10,
+    width: 40,
+    height: 40,
+    marginRight: 10,
     borderRadius: 20,
-    borderWidth: 2,
-    borderColor: colors.warmGrey,
-    backgroundColor: colors.weakBlack,
+    borderWidth: 0.5,
+    borderColor: colors.weakWhite,
+    backgroundColor: colors.weakWhite,
+  },
+  userInfo: {
+    flex: 1,
+    alignItems: 'flex-start',
+    justifyContent: 'space-around',
+  },
+  name: {
+    textAlign: 'left',
+  },
+  walletsContainer: {
+    flexDirection: 'row',
+  },
+  wallet: {
+    width: 15,
+    height: 15,
+    marginRight: 5,
+    resizeMode: 'stretch',
+    borderRadius: 2,
+    borderColor: colors.weakBlack,
+  },
+  moreButton: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 25,
+    height: 25,
+    borderWidth: 1,
+    borderRadius: 12,
+    borderColor: colors.weakWhite,
   },
 }

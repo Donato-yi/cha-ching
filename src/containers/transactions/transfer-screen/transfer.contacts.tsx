@@ -1,82 +1,61 @@
 import * as React from 'react'
-import { TouchableOpacity, View, Text, ScrollView, TextInput } from 'react-native'
+import { TouchableOpacity, View, ScrollView, TextInput, Image } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
+import { TextField } from 'react-native-material-textfield'
 
+import { Text } from '../../../components'
+import { users } from '../../../config/duumy'
 import * as screenStyles from './transfer.styles'
 import { colors } from '../../../themes'
 
-const contacts = [
-  {
-    id: 1,
-    name: 'Test User 1',
-    address: 'a098g7as90dg6a9s87dg6a89s7',
-  },
-  {
-    id: 2,
-    name: 'Test User 2',
-    address: 'a098g7as90dg6a9s87dg6a89s7',
-  },
-  {
-    id: 3,
-    name: 'Test User 3',
-    address: 'a098g7as90dg6a9s87dg6a89s7',
-  },
-  {
-    id: 4,
-    name: 'Test User 4',
-    address: 'a098g7as90dg6a9s87dg6a89s7',
-  },
-  {
-    id: 5,
-    name: 'Test User 5',
-    address: 'a098g7as90dg6a9s87dg6a89s7',
-  },
-  {
-    id: 1,
-    name: 'Test User 1',
-    address: 'a098g7as90dg6a9s87dg6a89s7',
-  },
-  {
-    id: 2,
-    name: 'Test User 2',
-    address: 'a098g7as90dg6a9s87dg6a89s7',
-  },
-  {
-    id: 3,
-    name: 'Test User 3',
-    address: 'a098g7as90dg6a9s87dg6a89s7',
-  },
-  {
-    id: 4,
-    name: 'Test User 4',
-    address: 'a098g7as90dg6a9s87dg6a89s7',
-  },
-  {
-    id: 5,
-    name: 'Test User 5',
-    address: 'a098g7as90dg6a9s87dg6a89s7',
-  },
-]
-
-interface ContactsProps {}
+interface ContactsProps {
+  searchText: string
+  updateSearchText: (searchText: string) => void
+  onSelectRecipient: () => void
+}
 
 const Contacts: React.SFC<ContactsProps> = (props: ContactsProps) => {
+  const { searchText, updateSearchText, onSelectRecipient } = props
   return (
     <View style={screenStyles.contacts.container}>
-      <View style={screenStyles.contacts.searchBox}>
+      {/* <View style={screenStyles.contacts.searchBox}>
         <TextInput style={screenStyles.contacts.searchInput} />
         <Icon name="search" size={18} color={colors.whiteBlue} />
+      </View> */}
+      <View style={screenStyles.searchField}>
+        <TextField
+          label="Search"
+          value={searchText}
+          onChangeText={searchText => updateSearchText(searchText)}
+          {...screenStyles.textInputColors}
+        />
       </View>
       <ScrollView style={{ paddingHorizontal: 15 }}>
-        {contacts.map(user => (
-          <View key={Math.random()} style={screenStyles.contacts.userContainer}>
-            <View style={screenStyles.contacts.avatar}>
-              <Icon name="user" size={18} color={colors.lightGreen} />
+        {users.map(user => (
+          <View key={Math.random()} style={screenStyles.cell.container}>
+            <View style={screenStyles.cell.avatar}>
+              <Icon name="user" size={18} color={colors.weakBlack} />
             </View>
-            <View>
-              <Text>{user.name}</Text>
-              <Text>{user.address}</Text>
-            </View>
+            <TouchableOpacity style={screenStyles.cell.userInfo} onPress={onSelectRecipient}>
+              <Text preset="primarySmall" text={'Thomas Schulz'} />
+              <View style={screenStyles.cell.walletsContainer}>
+                <Image
+                  style={screenStyles.cell.wallet}
+                  source={require('../../../assets/wallets/binance-32.png')}
+                />
+                <Image
+                  style={screenStyles.cell.wallet}
+                  source={require('../../../assets/wallets/coinbase-32.png')}
+                />
+                <Image
+                  style={screenStyles.cell.wallet}
+                  source={require('../../../assets/wallets/gdax-32.png')}
+                />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity style={screenStyles.cell.moreButton} onPress={() => {}}>
+              <Icon name="more-horizontal" color={colors.text} size={15} />
+            </TouchableOpacity>
           </View>
         ))}
         <View style={{ height: 60 }} />

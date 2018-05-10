@@ -14,7 +14,7 @@ const TransferTopArea: React.SFC<TransferTopAreaProps> = (props: TransferTopArea
     <View style={screenStyles.topArea.container}>
       <TouchableOpacity
         style={screenStyles.topArea.button}
-        onPress={() => props.navigateTo('settings')}
+        onPress={() => props.navigateTo('profile')}
       >
         <Icon name="user" size={20} color={colors.white} />
       </TouchableOpacity>
