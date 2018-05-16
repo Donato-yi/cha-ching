@@ -7,14 +7,15 @@ import { merge } from 'ramda'
 import { Text } from '../../../components'
 import CurrencyActions from '../../../actions/currency'
 
-import { coins, Coin } from '../../../config/coins'
+import { coins } from '../../../config/dummy'
+import { COIN_INFO } from '../../../config/coins'
 import { colors } from '../../../themes'
 
 import * as screenStyles from './transfer.styles'
 
 interface CurrencySelectorState {
   collapsed: boolean
-  selectedCoin: Coin
+  selectedCoin: string
 }
 
 interface CurrencySelectorProps {}
@@ -31,7 +32,7 @@ class CurrencySelector extends React.PureComponent<CurrencySelectorProps, Curren
     })
   }
 
-  selectCoin = (coin: Coin) => {
+  selectCoin = (coin: string) => {
     this.setState({
       collapsed: true,
       selectedCoin: coin,
@@ -43,11 +44,14 @@ class CurrencySelector extends React.PureComponent<CurrencySelectorProps, Curren
     return (
       <View style={screenStyles.currencySelector.container}>
         <TouchableOpacity style={screenStyles.currencySelector.selector} onPress={this.toggle}>
-          <Image style={screenStyles.currencySelector.coinAvatar} source={selectedCoin.avatar} />
+          <Image
+            style={screenStyles.currencySelector.coinAvatar}
+            source={COIN_INFO[selectedCoin].avatar}
+          />
           <Text
             style={screenStyles.currencySelector.coinName}
             preset="secondarySmall"
-            text={selectedCoin.name}
+            text={COIN_INFO[selectedCoin].name}
           />
         </TouchableOpacity>
         <Collapsible collapsed={collapsed} collapsedHeight={0}>
@@ -57,11 +61,14 @@ class CurrencySelector extends React.PureComponent<CurrencySelectorProps, Curren
               style={screenStyles.currencySelector.selector}
               onPress={() => this.selectCoin(coin)}
             >
-              <Image style={screenStyles.currencySelector.coinAvatar} source={coin.avatar} />
+              <Image
+                style={screenStyles.currencySelector.coinAvatar}
+                source={COIN_INFO[coin].avatar}
+              />
               <Text
                 style={screenStyles.currencySelector.coinName}
                 preset="secondarySmall"
-                text={coin.name}
+                text={COIN_INFO[coin].name}
               />
             </TouchableOpacity>
           ))}

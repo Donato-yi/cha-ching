@@ -3,7 +3,7 @@ import colors from '../../../themes/colors'
 
 export const ROOT: ViewStyle = {
   flex: 1,
-  backgroundColor: colors.green,
+  backgroundColor: colors.emerald,
 }
 
 export const backgroundImg: ImageStyle = {
@@ -25,21 +25,23 @@ export const topArea: {
 } = {
   container: {
     width: '100%',
-    height: 80,
-    paddingHorizontal: 30,
+    height: 40,
+    marginTop: 40,
+    paddingHorizontal: 15,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
-    alignItems: 'flex-end',
   },
   button: {
     width: 40,
     height: 40,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.emerald,
+    borderWidth: 1,
     borderRadius: 20,
-    borderColor: colors.weakWhite,
-    borderWidth: 2,
-    backgroundColor: colors.weakBlack,
+    borderColor: colors.clouds,
   },
 }
 
@@ -111,12 +113,12 @@ export const numPad: {
     justifyContent: 'space-between',
   },
   button: {
-    width: 60,
-    height: 60,
+    width: 70,
+    height: 45,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 30,
-    backgroundColor: colors.weakBlack,
+    borderBottomColor: colors.clouds,
+    borderBottomWidth: 1,
   },
 }
 

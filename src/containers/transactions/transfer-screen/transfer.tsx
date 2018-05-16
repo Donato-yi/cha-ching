@@ -34,8 +34,8 @@ class Transfer extends React.Component<TransferScreenProps, TransferScreenState>
     searchText: '',
   }
 
-  navigate = (route: string) => {
-    this.props.navigation.navigate(route)
+  navigateTo = (route: string, transition = 'default') => {
+    this.props.navigation.navigate(route, { transition })
   }
 
   onKeyInput = (key: string) => {
@@ -59,7 +59,7 @@ class Transfer extends React.Component<TransferScreenProps, TransferScreenState>
   }
 
   onSelectRecipient = () => {
-    this.props.navigation.navigate('selectWallet')
+    this.props.navigation.navigate('selectWallet', { transition: 'slideToLeft' })
   }
 
   switchScreen = () => {
@@ -76,7 +76,7 @@ class Transfer extends React.Component<TransferScreenProps, TransferScreenState>
           style={screenStyles.backgroundImg}
           source={require('../../../assets/bk-14.jpg')}
         /> */}
-        <TopArea navigateTo={this.navigate} />
+        <TopArea navigateTo={this.navigateTo} />
         <Text style={screenStyles.amountToSend}>$ {amountToSend}</Text>
         <CurrencySelector />
         <ScrollableTabView

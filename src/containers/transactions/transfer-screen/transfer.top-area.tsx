@@ -6,7 +6,7 @@ import * as screenStyles from './transfer.styles'
 import { colors } from '../../../themes'
 
 interface TransferTopAreaProps {
-  navigateTo: (route: string) => void
+  navigateTo: (route: string, transition?: string) => void
 }
 
 const TransferTopArea: React.SFC<TransferTopAreaProps> = (props: TransferTopAreaProps) => {
@@ -14,15 +14,15 @@ const TransferTopArea: React.SFC<TransferTopAreaProps> = (props: TransferTopArea
     <View style={screenStyles.topArea.container}>
       <TouchableOpacity
         style={screenStyles.topArea.button}
-        onPress={() => props.navigateTo('profile')}
+        onPress={() => props.navigateTo('profile', 'slideToRight')}
       >
         <Icon name="user" size={20} color={colors.white} />
       </TouchableOpacity>
       <TouchableOpacity
         style={screenStyles.topArea.button}
-        onPress={() => props.navigateTo('history')}
+        onPress={() => props.navigateTo('wallets', 'slideToLeft')}
       >
-        <Icon name="mail" size={20} color={colors.white} />
+        <Icon name="credit-card" size={20} color={colors.white} />
       </TouchableOpacity>
     </View>
   )
