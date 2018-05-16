@@ -1,30 +1,27 @@
 import * as React from 'react'
-import { View, Text } from 'react-native'
+import { View, Image } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
+import { Text } from '../../../components'
+import { COIN_INFO } from '../../../config/coins'
+import { History } from '../../../config/types'
 import * as screenStyles from './history.styles'
-import { colors } from '../../../themes'
 
 interface CellProps {
-  name: string
-  address: string
-  amount: string
-  wallet: string
+  data: History
 }
 
 const Cell: React.SFC<CellProps> = (props: CellProps) => {
-  const { name, address, amount, wallet } = props
+  const { from, to, amount, coin } = props.data
   return (
     <View style={screenStyles.cell.container}>
-      <View style={screenStyles.cell.avatar}>
-        <Icon name="user" size={18} color={colors.weakBlack} />
+      <Text preset="primaryTiny" style={screenStyles.cell.from} text={'@' + from} />
+      <Text preset="primaryTiny" style={screenStyles.cell.from} text={'@' + to} />
+      <View style={screenStyles.cell.amountContainer}>
+        <Text preset="primaryTiny" text={amount.USD + ' USD'} />
+        <Text preset="primaryTiny" text={amount.coin + ' ' + coin} />
       </View>
-      <View>
-        <Text>{name}</Text>
-        <Text>{address}</Text>
-        <Text>{amount}</Text>
-        <Text>{wallet}</Text>
-      </View>
+      <Image style={screenStyles.cell.coinImage} source={COIN_INFO[coin].avatar} />
     </View>
   )
 }
