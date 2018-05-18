@@ -1,54 +1,24 @@
-import { ImagePropertiesSourceOptions } from 'react-native'
-
-export type Coin = {
-  name: string
-  avatar: ImagePropertiesSourceOptions,
-}
-
-export const COIN_DATA: object = {
-  btc: {
+export const COIN_INFO = {
+  BTC: {
     name: 'Bitcoin',
     avatar: require('../assets/coins/btc.png'),
   },
-  eth: {
+  ETH: {
     name: 'Ethereum',
     avatar: require('../assets/coins/eth.png'),
   },
-  ltc: {
+  LTC: {
     name: 'Litecoin',
     avatar: require('../assets/coins/ltc.png'),
   },
-  bnb: {
+  BNB: {
     name: 'Binance Coin',
     avatar: require('../assets/coins/bnb.png'),
   },
-  bch: {
+  BCH: {
     name: 'Bitcoin Cash',
     avatar: require('../assets/coins/bch.png'),
   },
 }
 
-export const coins: Array<Coin> = [
-  {
-    name: 'Bitcoin',
-    avatar: require('../assets/coins/btc.png'),
-  },
-  {
-    name: 'Ethereum',
-    avatar: require('../assets/coins/eth.png'),
-  },
-  {
-    name: 'Litecoin',
-    avatar: require('../assets/coins/ltc.png'),
-  },
-  {
-    name: 'Binance Coin',
-    avatar: require('../assets/coins/bnb.png'),
-  },
-  {
-    name: 'Bitcoin Cash',
-    avatar: require('../assets/coins/bch.png'),
-  },
-]
-
-export default coins
+export default COIN_INFO
