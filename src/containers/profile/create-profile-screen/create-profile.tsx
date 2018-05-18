@@ -43,8 +43,20 @@ class Profile extends React.Component<ProfileScreenProps, ProfileScreenState> {
     avatar: require('../../../assets/bk-14.jpg'),
   }
 
-  navigateTo = (route: string) => {
-    this.props.navigation.navigate(route)
+  navigateTo = (route: string, transition: string = 'default', action: string = 'push') => {
+    switch (action) {
+      case 'push':
+        this.props.navigation.push(route, { transition })
+        break
+      case 'pop':
+        this.props.navigation.pop()
+        break
+      case 'navigate':
+        this.props.navigation.navigate(route, { transition, from: 'sign-up' })
+        break
+      default:
+        break
+    }
   }
 
   selectAvatar = () => {
@@ -86,7 +98,7 @@ class Profile extends React.Component<ProfileScreenProps, ProfileScreenState> {
           />
           <TouchableOpacity
             style={screenStyles.nextButton}
-            onPress={() => this.navigateTo('connectContacts')}
+            onPress={() => this.navigateTo('connectContacts', 'slideToLeft', 'navigate')}
           >
             <Text text="Next" />
           </TouchableOpacity>

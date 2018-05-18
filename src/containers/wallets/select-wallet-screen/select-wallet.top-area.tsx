@@ -2,12 +2,12 @@ import * as React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
-import * as screenStyles from './choose-signup-method.styles'
+import * as screenStyles from './select-wallet.styles'
 import { Text } from '../../../components'
 import { colors } from '../../../themes'
 
 interface TopAreaProps {
-  navigateTo: (route: string) => void
+  navigateTo: (route: string, transition?: string, action?: string) => void
 }
 
 const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {

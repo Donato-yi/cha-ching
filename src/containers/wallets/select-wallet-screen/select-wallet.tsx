@@ -11,7 +11,9 @@ import { connect } from 'react-redux'
 
 import TopArea from './select-wallet.top-area'
 import { Text } from '../../../components'
-import { Coin, coins } from '../../../config/coins'
+import { COIN_INFO } from '../../../config/coins'
+import { wallets } from '../../../config/dummy'
+import { Wallet } from '../../../config/types'
 import AuthActions from '../../../actions/auth'
 import * as screenStyles from './select-wallet.styles'
 
@@ -21,7 +23,7 @@ export interface SelectWalletScreenProps {
 
 export interface SelectWalletScreenState {
   isBusy: boolean
-  wallets: Array<Coin>
+  wallets: Array<Wallet>
 }
 
 class SelectWalletScreen extends React.Component<SelectWalletScreenProps, SelectWalletScreenState> {
@@ -29,15 +31,15 @@ class SelectWalletScreen extends React.Component<SelectWalletScreenProps, Select
     super(props)
     this.state = {
       isBusy: false,
-      wallets: coins,
+      wallets,
     }
   }
 
-  navigateTo = (route: string) => {
+  navigateTo = (route: string, transition = 'slideToLeft') => {
     if (route === 'back') {
       this.props.navigation.pop()
     } else {
-      this.props.navigation.navigate(route)
+      this.props.navigation.navigate(route, { transition })
     }
   }
 
@@ -53,9 +55,9 @@ class SelectWalletScreen extends React.Component<SelectWalletScreenProps, Select
               style={screenStyles.sendButton}
               onPress={() => this.navigateTo('confirmTransaction')}
             >
-              <Text preset="primaryMedium" text={wallet.name} />
+              <Text preset="primaryMedium" text={COIN_INFO[wallet.coin].name} />
               <View style={screenStyles.avatar.container}>
-                <Image style={screenStyles.avatar.image} source={wallet.avatar} />
+                <Image style={screenStyles.avatar.image} source={COIN_INFO[wallet.coin].avatar} />
               </View>
             </TouchableOpacity>
           ))}

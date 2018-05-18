@@ -78,7 +78,7 @@ class SelectService extends React.PureComponent<SelectServiceProps, SelectServic
           )}
           <Text
             style={screenStyles.serviceSelector.coinName}
-            preset="secondarySmall"
+            preset="primarySmall"
             text={selectedService.name + '   : $' + balance}
           />
         </TouchableOpacity>
@@ -95,7 +95,7 @@ class SelectService extends React.PureComponent<SelectServiceProps, SelectServic
               />
               <Text
                 style={screenStyles.serviceSelector.coinName}
-                preset="secondarySmall"
+                preset="primarySmall"
                 text={service.name + '   : $' + balance}
               />
             </TouchableOpacity>

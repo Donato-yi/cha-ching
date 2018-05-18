@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { TouchableOpacity, View } from 'react-native'
-import { NavigationParams } from 'react-navigation'
+import { NavigationParams, NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/Feather'
 
@@ -33,11 +33,19 @@ class SignUp extends React.Component<SignUpScreenProps, SignUpScreenState> {
     confirmPassword: '',
   }
 
-  navigateTo = (route: string) => {
-    if (route === 'back') {
-      this.props.navigation.goBack()
-    } else {
-      this.props.navigation.navigate(route)
+  navigateTo = (route: string, transition: string = 'default', action: string = 'push') => {
+    switch (action) {
+      case 'push':
+        this.props.navigation.push(route, { transition })
+        break
+      case 'pop':
+        this.props.navigation.pop()
+        break
+      case 'navigate':
+        this.props.navigation.navigate(route, { transition })
+        break
+      default:
+        break
     }
   }
 
@@ -49,7 +57,7 @@ class SignUp extends React.Component<SignUpScreenProps, SignUpScreenState> {
         <View style={screenStyles.container}>
           <TouchableOpacity
             style={screenStyles.button}
-            onPress={() => this.navigateTo('transactionsStack')}
+            onPress={() => this.navigateTo('verify', 'slideToLeft', 'push')}
           >
             <Icon name="facebook" size={12} color={colors.text} />
             <Text
@@ -60,7 +68,7 @@ class SignUp extends React.Component<SignUpScreenProps, SignUpScreenState> {
           </TouchableOpacity>
           <TouchableOpacity
             style={screenStyles.button}
-            onPress={() => this.navigateTo('emailSignup')}
+            onPress={() => this.navigateTo('emailSignup', 'slideToLeft', 'push')}
           >
             <Icon name="mail" size={12} color={colors.text} />
             <Text preset="primarySmall" text="Sign up with Email" style={screenStyles.buttonText} />
