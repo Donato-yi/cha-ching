@@ -7,7 +7,7 @@ import { Text } from '../../../components'
 import { colors } from '../../../themes'
 
 interface TopAreaProps {
-  navigateTo: (route: string) => void
+  navigateTo: (route: string, transition?: string, action?: string) => void
 }
 
 const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
@@ -15,7 +15,7 @@ const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
     <View style={screenStyles.topArea.container}>
       <TouchableOpacity
         style={screenStyles.topArea.button}
-        onPress={() => props.navigateTo('back')}
+        onPress={() => props.navigateTo(null, null, 'pop')}
       >
         <Icon name="chevron-left" size={30} color={colors.whiteBlue} />
       </TouchableOpacity>

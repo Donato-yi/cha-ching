@@ -38,11 +38,19 @@ class InviteFriendScreen extends React.Component<InviteFriendScreenProps, Invite
     }
   }
 
-  navigateTo = (route: string) => {
-    if (route === 'back') {
-      this.props.navigation.pop()
-    } else {
-      this.props.navigation.navigate(route)
+  navigateTo = (route: string, transition: string = 'default', action: string = 'push') => {
+    switch (action) {
+      case 'push':
+        this.props.navigation.push(route, { transition })
+        break
+      case 'pop':
+        this.props.navigation.pop()
+        break
+      case 'navigate':
+        this.props.navigation.navigate(route, { transition })
+        break
+      default:
+        break
     }
   }
 
@@ -59,7 +67,7 @@ class InviteFriendScreen extends React.Component<InviteFriendScreenProps, Invite
           <Text preset="primaryLarge" text={firstName + ' ' + lastName} />
           <TouchableOpacity
             style={screenStyles.inviteButton}
-            onPress={() => this.navigateTo('back')}
+            onPress={() => this.navigateTo(null, null, 'pop')}
           >
             <Text preset="primaryMedium" text="Invite" />
           </TouchableOpacity>
