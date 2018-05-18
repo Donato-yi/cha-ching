@@ -50,7 +50,7 @@ class CurrencySelector extends React.PureComponent<CurrencySelectorProps, Curren
           />
           <Text
             style={screenStyles.currencySelector.coinName}
-            preset="secondarySmall"
+            preset="primarySmall"
             text={COIN_INFO[selectedCoin].name}
           />
         </TouchableOpacity>
@@ -67,7 +67,7 @@ class CurrencySelector extends React.PureComponent<CurrencySelectorProps, Curren
               />
               <Text
                 style={screenStyles.currencySelector.coinName}
-                preset="secondarySmall"
+                preset="primarySmall"
                 text={COIN_INFO[coin].name}
               />
             </TouchableOpacity>

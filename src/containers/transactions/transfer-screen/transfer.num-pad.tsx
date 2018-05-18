@@ -24,7 +24,7 @@ const NumPad: React.SFC<NumPadProps> = (props: NumPadProps) => {
               style={screenStyles.numPad.button}
               onPress={() => props.onInput(number)}
             >
-              <Text preset="secondaryLarge" text={number} />
+              <Text preset="primaryLarge" text={number} />
             </TouchableOpacity>
           ))}
         </View>

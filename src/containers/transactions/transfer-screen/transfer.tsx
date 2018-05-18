@@ -34,8 +34,20 @@ class Transfer extends React.Component<TransferScreenProps, TransferScreenState>
     searchText: '',
   }
 
-  navigateTo = (route: string, transition = 'default') => {
-    this.props.navigation.navigate(route, { transition })
+  navigateTo = (route: string, transition: string = 'default', action: string = 'push') => {
+    switch (action) {
+      case 'push':
+        this.props.navigation.push(route, { transition })
+        break
+      case 'pop':
+        this.props.navigation.pop()
+        break
+      case 'navigate':
+        this.props.navigation.navigate(route, { transition })
+        break
+      default:
+        break
+    }
   }
 
   onKeyInput = (key: string) => {
@@ -72,10 +84,6 @@ class Transfer extends React.Component<TransferScreenProps, TransferScreenState>
     const { viewIndex, amountToSend, searchText } = this.state
     return (
       <View style={screenStyles.ROOT}>
-        {/* <Image
-          style={screenStyles.backgroundImg}
-          source={require('../../../assets/bk-14.jpg')}
-        /> */}
         <TopArea navigateTo={this.navigateTo} />
         <Text style={screenStyles.amountToSend}>$ {amountToSend}</Text>
         <CurrencySelector />

@@ -178,7 +178,6 @@ export const cell: {
   container: ViewStyle
   avatar: ViewStyle
   userInfo: ViewStyle
-  name: TextStyle
   walletsContainer: ViewStyle
   wallet: ImageStyle
   moreButton: ViewStyle,
@@ -204,9 +203,6 @@ export const cell: {
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'space-around',
-  },
-  name: {
-    textAlign: 'left',
   },
   walletsContainer: {
     flexDirection: 'row',

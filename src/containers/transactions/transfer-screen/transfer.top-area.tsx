@@ -6,7 +6,7 @@ import * as screenStyles from './transfer.styles'
 import { colors } from '../../../themes'
 
 interface TransferTopAreaProps {
-  navigateTo: (route: string, transition?: string) => void
+  navigateTo: (route: string, transition?: string, action?: string) => void
 }
 
 const TransferTopArea: React.SFC<TransferTopAreaProps> = (props: TransferTopAreaProps) => {
