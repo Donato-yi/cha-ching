@@ -26,6 +26,7 @@
     "react-native-material-textfield": "^0.12.0",
     "react-native-phone-input": "^0.2.1",
     "react-native-scrollable-tab-view": "^0.8.0",
+    "react-native-segmented-control-tab": "^3.2.2",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^1.5.11",
     "react-navigation-redux-helpers": "^1.0.5",
