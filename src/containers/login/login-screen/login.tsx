@@ -22,8 +22,23 @@ class Login extends React.Component<LoginScreenProps, LoginScreenState> {
     this.state = { isBusy: false }
   }
 
-  navigateTo = (route: string) => {
-    this.props.navigation.navigate(route)
+  navigateTo = (route: string, transition: string = 'default', action: string = 'navigate') => {
+    switch (action) {
+      case 'push':
+        this.props.navigation.push(route, { transition })
+        break
+      case 'pop':
+        this.props.navigation.pop()
+        break
+      case 'navigate':
+        this.props.navigation.navigate(route)
+        break
+      case 'back':
+        this.props.navigation.pop()
+        break
+      default:
+        break
+    }
   }
 
   render() {
@@ -35,13 +50,13 @@ class Login extends React.Component<LoginScreenProps, LoginScreenState> {
         <View style={{ flex: 1 }} />
         <TouchableOpacity
           style={screenStyles.loginFacebook}
-          onPress={() => this.navigateTo('transactionStack')}
+          onPress={() => this.navigateTo('dashboardStack')}
         >
           <Text text="FACEBOOK LOGIN" style={screenStyles.text.facebook} />
         </TouchableOpacity>
         <TouchableOpacity
           style={screenStyles.loginEmail}
-          onPress={() => this.navigateTo('transactionStack')}
+          onPress={() => this.navigateTo('emailLogin', 'slideToLeft', 'push')}
         >
           <Text text="Log in with Email" style={screenStyles.text.email} />
         </TouchableOpacity>

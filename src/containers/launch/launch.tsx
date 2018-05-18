@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { View, Image } from 'react-native'
-import { NavigationParams } from 'react-navigation'
+import { NavigationParams, NavigationActions } from 'react-navigation'
 import * as screenStyles from './launch.styles'
 
 export interface LaunchScreenProps {
@@ -12,7 +12,9 @@ export interface LaunchScreenProps {
  */
 
 const Launch: React.SFC<LaunchScreenProps> = (props: LaunchScreenProps) => {
-  setTimeout(() => props.navigation.navigate('loginStack'), 3000)
+  setTimeout(() => {
+    props.navigation.navigate('authStack')
+  }, 3000)
 
   return (
     <View style={screenStyles.ROOT}>

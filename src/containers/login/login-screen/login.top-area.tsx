@@ -7,7 +7,7 @@ import { Text } from '../../../components'
 import { colors } from '../../../themes'
 
 interface TopAreaProps {
-  navigateTo: (route: string) => void
+  navigateTo: (route: string, transition?: string, action?: string) => void
 }
 
 const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
@@ -15,10 +15,9 @@ const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
     <View style={screenStyles.topArea.container}>
       <TouchableOpacity
         style={screenStyles.topArea.button}
-        onPress={() => props.navigateTo('chooseMethod')}
+        onPress={() => props.navigateTo('chooseMethod', 'slideToLeft', 'push')}
       >
-        <Text text="SIGN UP" preset="secondaryMedium" />
-        {/* <Icon name="plus" size={20} color={colors.whiteBlue} /> */}
+        <Text text="SIGN UP" preset="primaryMedium" />
       </TouchableOpacity>
     </View>
   )
