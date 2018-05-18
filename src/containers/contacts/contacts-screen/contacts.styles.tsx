@@ -3,7 +3,7 @@ import colors from '../../../themes/colors'
 
 export const ROOT: ViewStyle = {
   flex: 1,
-  backgroundColor: colors.blue,
+  backgroundColor: colors.wetaspalt,
 }
 
 export const topArea: {
@@ -31,57 +31,56 @@ export const topArea: {
   },
 }
 
+export const container: ViewStyle = {
+  flex: 1,
+}
+
+export const contacts: ViewStyle = {
+  flex: 1,
+  flexDirection: 'row',
+  marginTop: 15,
+}
+
+export const scrollBar: {
+  container: ViewStyle
+  title: ViewStyle,
+} = {
+  container: {
+    width: 20,
+    justifyContent: 'space-around',
+  },
+  title: {
+    width: 20,
+  },
+}
+
 export const header: {
   container: ViewStyle
   title: TextStyle,
 } = {
   container: {
     height: 23,
-    backgroundColor: colors.lightBlue,
-    marginRight: 20,
+    backgroundColor: colors.midnightblue,
   },
   title: {
     paddingLeft: 15,
     fontSize: 18,
     fontWeight: 'bold',
-    color: colors.blue,
-  },
-}
-
-export const contacts: ViewStyle = {
-  flex: 1,
-  marginTop: 15,
-}
-
-export const scrollBar: {
-  container: ViewStyle
-  // button: ViewStyle,
-  title: TextStyle,
-} = {
-  container: {
-    position: 'absolute',
-    top: 0,
-    right: 20,
-    width: 20,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  title: {
-    color: colors.whiteBlue,
+    color: colors.text,
   },
 }
 
 export const cell: {
   container: ViewStyle
-  avatar: ViewStyle,
+  avatar: ViewStyle
+  infoContainer: ViewStyle,
 } = {
   container: {
     flexDirection: 'row',
-    marginRight: 20,
     padding: 10,
     borderWidth: 1,
-    borderColor: colors.lightBlue,
-    backgroundColor: colors.whiteBlue,
+    borderColor: colors.weakBlack,
+    backgroundColor: colors.weakWhite,
   },
   avatar: {
     width: 40,
@@ -93,5 +92,8 @@ export const cell: {
     borderWidth: 2,
     borderColor: colors.warmGrey,
     backgroundColor: colors.weakWhite,
+  },
+  infoContainer: {
+    justifyContent: 'space-around',
   },
 }

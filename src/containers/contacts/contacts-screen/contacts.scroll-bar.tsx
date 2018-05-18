@@ -44,11 +44,15 @@ const ScrollBar: React.SFC<ScrollBarProps> = (props: ScrollBarProps) => {
   const { scrollTo } = props
   return (
     <View style={screenStyles.scrollBar.container}>
-      {titles.map(title => {
-        <TouchableOpacity key={Math.random()} onPress={() => scrollTo(title)}>
-          <Text preset="secondaryMedium" style={screenStyles.scrollBar.title} text={title} />
+      {titles.map(title => (
+        <TouchableOpacity
+          key={Math.random()}
+          style={screenStyles.scrollBar.title}
+          onPress={() => scrollTo(title)}
+        >
+          <Text preset="primaryMedium" text={title} />
         </TouchableOpacity>
-      })}
+      ))}
     </View>
   )
 }
