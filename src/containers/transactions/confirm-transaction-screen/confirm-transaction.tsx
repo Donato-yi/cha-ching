@@ -11,7 +11,9 @@ import { connect } from 'react-redux'
 
 import TopArea from './confirm-transaction.top-area'
 import { Text } from '../../../components'
-import { Wallet, wallets } from '../../../config/wallets'
+import { wallets } from '../../../config/dummy'
+import { COIN_INFO } from '../../../config/coins'
+import { Wallet } from '../../../config/types'
 import AuthActions from '../../../actions/auth'
 import * as screenStyles from './confirm-transaction.styles'
 
@@ -67,7 +69,7 @@ class ConfirmTransactionScreen extends React.Component<
               <Image style={screenStyles.avatar.image} source={avatar} />
             </View>
             <View style={screenStyles.avatar.container}>
-              <Image style={screenStyles.avatar.image} source={wallet.avatar} />
+              <Image style={screenStyles.avatar.image} source={COIN_INFO[wallet.coin].avatar} />
             </View>
           </View>
           <View style={screenStyles.infoArea}>

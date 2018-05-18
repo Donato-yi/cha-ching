@@ -7,7 +7,7 @@ import { Text } from '../../../components'
 import { colors } from '../../../themes'
 
 interface TopAreaProps {
-  navigateTo: (route: string) => void
+  navigateTo: (route: string, transition?: string, action?: string) => void
 }
 
 const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
