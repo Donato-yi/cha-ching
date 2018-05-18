@@ -42,6 +42,7 @@ export const topArea: {
     justifyContent: 'space-between',
   },
   button: {
+    width: 40,
     height: 40,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -58,9 +59,7 @@ export const textInputColors = {
 export const cell: {
   container: ViewStyle
   avatar: ViewStyle
-  userContainer: ViewStyle
-  name: TextStyle
-  address: TextStyle,
+  userContainer: ViewStyle,
 } = {
   container: {
     flexDirection: 'row',
@@ -82,11 +81,5 @@ export const cell: {
   userContainer: {
     alignItems: 'flex-start',
     justifyContent: 'space-around',
-  },
-  name: {
-    textAlign: 'left',
-  },
-  address: {
-    textAlign: 'left',
   },
 }

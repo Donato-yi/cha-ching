@@ -7,19 +7,18 @@ import { Text } from '../../../components'
 import { colors } from '../../../themes'
 
 interface TopAreaProps {
-  navigateTo: (route: string) => void
+  navigateTo: (route: string, transition?: string, action?: string) => void
 }
 
 const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
   return (
     <View style={screenStyles.topArea.container}>
+      <View style={screenStyles.topArea.button} />
+      <Text text="Friends from Facebook" />
       <TouchableOpacity
         style={screenStyles.topArea.button}
-        onPress={() => props.navigateTo('createProfile')}
+        onPress={() => props.navigateTo('findFriends', 'slideToLeft', 'push')}
       >
-        <Icon name="chevron-left" size={30} color={colors.whiteBlue} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => props.navigateTo('findFriends')}>
         <Text text="Next" />
       </TouchableOpacity>
     </View>

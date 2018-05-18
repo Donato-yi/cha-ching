@@ -8,7 +8,7 @@ import Cell from './connect-contacts.cell'
 import TopArea from './connect-contacts.top-area'
 import * as screenStyles from './connect-contacts.styles'
 
-import { users } from '../../../config/duumy'
+import { users } from '../../../config/dummy'
 
 export interface ConnectContactsScreenProps {
   navigation: NavigationParams
@@ -28,8 +28,20 @@ class ConnectContacts extends React.Component<
     users,
   }
 
-  navigateTo = (route: string) => {
-    this.props.navigation.navigate(route, { from: 'connectContacts' })
+  navigateTo = (route: string, transition: string = 'default', action: string = 'navigate') => {
+    switch (action) {
+      case 'push':
+        this.props.navigation.push(route, { transition, from: 'connectContacts' })
+        break
+      case 'pop':
+        this.props.navigation.pop()
+        break
+      case 'navigate':
+        this.props.navigation.navigate(route, { transition, from: 'connectContacts' })
+        break
+      default:
+        break
+    }
   }
 
   render() {
