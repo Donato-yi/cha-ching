@@ -10,7 +10,7 @@ import Cell from './find-friends.cell'
 import AuthActions from '../../../actions/auth'
 import * as screenStyles from './find-friends.styles'
 
-import { users } from '../../../config/duumy'
+import { users } from '../../../config/dummy'
 
 export interface FindFriendsScreenProps {
   navigation: NavigationParams
@@ -32,11 +32,19 @@ class FindFriendsScreen extends React.Component<FindFriendsScreenProps, FindFrie
     }
   }
 
-  navigateTo = (route: string) => {
-    if (route === 'back') {
-      this.props.navigation.pop()
-    } else {
-      this.props.navigation.navigate(route)
+  navigateTo = (route: string, transition: string = 'default', action: string = 'push') => {
+    switch (action) {
+      case 'push':
+        this.props.navigation.push(route, { transition })
+        break
+      case 'pop':
+        this.props.navigation.pop()
+        break
+      case 'navigate':
+        this.props.navigation.navigate(route, { transition })
+        break
+      default:
+        break
     }
   }
 
@@ -55,7 +63,10 @@ class FindFriendsScreen extends React.Component<FindFriendsScreenProps, FindFrie
         </View>
         <ScrollView style={screenStyles.container}>
           {users.map(user => (
-            <TouchableOpacity key={Math.random()} onPress={() => this.navigateTo('inviteFriend')}>
+            <TouchableOpacity
+              key={Math.random()}
+              onPress={() => this.navigateTo('inviteFriend', 'slideToLeft', 'push')}
+            >
               <Cell {...user} />
             </TouchableOpacity>
           ))}

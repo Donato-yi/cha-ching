@@ -20,12 +20,8 @@ const Cell: React.SFC<CellProps> = (props: CellProps) => {
         <Icon name="user" size={18} color={colors.weakBlack} />
       </View>
       <View style={screenStyles.cell.userContainer}>
-        <Text preset="primaryMedium" style={screenStyles.cell.name} text={name} />
-        <Text
-          preset="secondaryTiny"
-          style={screenStyles.cell.address}
-          text={'@' + name + ', ' + address}
-        />
+        <Text preset="secondaryMedium" text={name} />
+        <Text preset="secondaryTiny" text={'@' + name + ', ' + address} />
       </View>
     </View>
   )
