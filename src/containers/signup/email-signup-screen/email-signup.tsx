@@ -34,11 +34,19 @@ class SignUp extends React.Component<SignUpScreenProps, SignUpScreenState> {
     hasAgreedPrivacy: false,
   }
 
-  navigateTo = (route: string) => {
-    if (route === 'back') {
-      this.props.navigation.goBack()
-    } else {
-      this.props.navigation.navigate(route)
+  navigateTo = (route: string, transition: string = 'default', action: string = 'push') => {
+    switch (action) {
+      case 'push':
+        this.props.navigation.push(route, { transition })
+        break
+      case 'pop':
+        this.props.navigation.pop()
+        break
+      case 'navigate':
+        this.props.navigation.navigate(route, { transition })
+        break
+      default:
+        break
     }
   }
 
@@ -86,7 +94,7 @@ class SignUp extends React.Component<SignUpScreenProps, SignUpScreenState> {
           />
           <TouchableOpacity
             style={screenStyles.sendButton}
-            onPress={() => this.navigateTo('verify')}
+            onPress={() => this.navigateTo('verify', 'slideToLeft', 'push')}
             disabled={!hasAgreedPrivacy}
           >
             <Text text="Sign Up" />
@@ -98,7 +106,7 @@ class SignUp extends React.Component<SignUpScreenProps, SignUpScreenState> {
                 isChecked={hasAgreedPrivacy}
                 onClick={() => this.setState({ hasAgreedPrivacy: !hasAgreedPrivacy })}
               />
-              <Text preset="secondaryTiny" text="Privacy and Policy" />
+              <Text preset="primaryTiny" text="Privacy and Policy" />
             </View>
           </View>
         </ScrollView>

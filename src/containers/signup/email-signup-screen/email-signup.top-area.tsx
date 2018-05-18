@@ -2,12 +2,12 @@ import * as React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
-import * as screenStyles from './verify.styles'
+import * as screenStyles from './email-signup.styles'
 import { Text } from '../../../components'
 import { colors } from '../../../themes'
 
 interface TopAreaProps {
-  navigateTo: (route: string) => void
+  navigateTo: (route: string, transition?: string, action?: string) => void
 }
 
 const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
@@ -15,7 +15,7 @@ const TopArea: React.SFC<TopAreaProps> = (props: TopAreaProps) => {
     <View style={screenStyles.topArea.container}>
       <TouchableOpacity
         style={screenStyles.topArea.button}
-        onPress={() => props.navigateTo('back')}
+        onPress={() => props.navigateTo(null, null, 'pop')}
       >
         <Icon name="chevron-left" size={30} color={colors.whiteBlue} />
       </TouchableOpacity>

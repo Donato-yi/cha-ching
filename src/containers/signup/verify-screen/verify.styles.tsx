@@ -11,30 +11,6 @@ export const container: ViewStyle = {
   flex: 1,
 }
 
-export const topArea: {
-  container: ViewStyle
-  button: ViewStyle,
-} = {
-  container: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: 40,
-    marginTop: 40,
-    paddingHorizontal: 15,
-    flexDirection: 'row',
-    alignItems: 'center',
-    zIndex: 1,
-  },
-  button: {
-    height: 40,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-}
-
 export const verifyButton: ViewStyle = {
   alignItems: 'center',
   width: 200,

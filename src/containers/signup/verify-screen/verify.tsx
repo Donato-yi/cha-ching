@@ -9,7 +9,6 @@ import { equals } from 'ramda'
 
 import { Text } from '../../../components'
 import CountryPicker from '../../../modals/country-picker-modal'
-import TopArea from './verify.top-area'
 import AuthActions from '../../../actions/auth'
 import * as screenStyles from './verify.styles'
 
@@ -32,7 +31,7 @@ class VerifyPhoneNumber extends React.Component<
   state = {
     isBusy: false,
     viewIndex: 0,
-    verificationCode: '',
+    verificationCode: '1234',
     countryList: null,
     phoneNumber: null,
   }
@@ -46,11 +45,19 @@ class VerifyPhoneNumber extends React.Component<
     })
   }
 
-  navigateTo = (route: string) => {
-    if (route === 'back') {
-      this.props.navigation.goBack()
-    } else {
-      this.props.navigation.navigate(route)
+  navigateTo = (route: string, transition: string = 'default', action: string = 'push') => {
+    switch (action) {
+      case 'push':
+        this.props.navigation.push(route, { transition })
+        break
+      case 'pop':
+        this.props.navigation.pop()
+        break
+      case 'navigate':
+        this.props.navigation.navigate(route, { transition })
+        break
+      default:
+        break
     }
   }
 
@@ -64,7 +71,7 @@ class VerifyPhoneNumber extends React.Component<
 
   onCodeFullFill = (code: string) => {
     if (equals(code, this.state.verificationCode)) {
-      this.navigateTo('contactsStack')
+      this.navigateTo('createProfile', 'slideToTop', 'navigate')
     }
   }
 
@@ -78,7 +85,6 @@ class VerifyPhoneNumber extends React.Component<
     const { isBusy, viewIndex, countryList, verificationCode } = this.state
     return (
       <View style={screenStyles.ROOT}>
-        <TopArea navigateTo={this.navigateTo} />
         <ScrollableTabView
           style={screenStyles.container}
           onChangeTab={index => this.setState({ viewIndex: index.i })}
