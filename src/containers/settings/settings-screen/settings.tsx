@@ -6,8 +6,7 @@ import Icon from 'react-native-vector-icons/Feather'
 
 import { Text } from '../../../components'
 import TopArea from './setttings.top-area'
-import Profile from './settings.profile'
-import Coins from './settings.coins'
+import TopCoinSelector from './settings.coin-selector'
 import Options from './settings.options'
 
 import * as screenStyles from './settings.styles'
@@ -36,8 +35,20 @@ class Settings extends React.Component<SettingsScreenProps, SettingsScreenState>
     this.props.navigation.navigate('Home')
   }
 
-  navigateTo = (route: string) => {
-    this.props.navigation.navigate(route)
+  navigateTo = (route: string, transition: string = 'default', action: string = 'push') => {
+    switch (action) {
+      case 'push':
+        this.props.navigation.push(route, { transition })
+        break
+      case 'pop':
+        this.props.navigation.pop()
+        break
+      case 'navigate':
+        this.props.navigation.navigate(route, { transition, from: 'profile' })
+        break
+      default:
+        break
+    }
   }
 
   render() {
@@ -45,9 +56,10 @@ class Settings extends React.Component<SettingsScreenProps, SettingsScreenState>
     return (
       <View style={screenStyles.ROOT}>
         <TopArea navigateTo={this.navigateTo} />
-        <Profile name={name} username={username} navigateTo={this.navigateTo} />
-        <Coins coins={coins} />
-        <Options navigateTo={this.navigateTo} />
+        <ScrollView style={screenStyles.container} contentContainerStyle={screenStyles.container}>
+          <TopCoinSelector />
+          <Options />
+        </ScrollView>
       </View>
     )
   }
