@@ -5,12 +5,12 @@ import { colors } from '../../../themes'
  * All text will start off looking like this.
  */
 const PRIMARY: TextStyle = {
-  color: colors.white,
+  color: colors.text,
   textAlign: 'center',
 }
 const SECONDARY: TextStyle = {
-  color: colors.white,
-  textAlign: 'center',
+  color: colors.text,
+  textAlign: 'left',
 }
 
 /**
