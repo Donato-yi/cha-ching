@@ -3,8 +3,8 @@ import { View, Image } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 
 import { Text } from '../../../components'
-import { COIN_INFO } from '../../../config/coins'
-import { History } from '../../../config/types'
+import { COIN_INFO } from '../../../constants/coins'
+import { History } from '../../../constants/types'
 import * as screenStyles from './history.styles'
 
 interface CellProps {

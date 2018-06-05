@@ -7,8 +7,8 @@ import { merge } from 'ramda'
 import { Text } from '../../../components'
 import CurrencyActions from '../../../actions/currency'
 
-import { coins } from '../../../config/dummy'
-import { COIN_INFO } from '../../../config/coins'
+import { coins } from '../../../constants/dummy'
+import { COIN_INFO } from '../../../constants/coins'
 import { colors } from '../../../themes'
 
 import * as screenStyles from './transfer.styles'

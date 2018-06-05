@@ -10,7 +10,7 @@ import Cell from './find-friends.cell'
 import AuthActions from '../../../actions/auth'
 import * as screenStyles from './find-friends.styles'
 
-import { users } from '../../../config/dummy'
+import { users } from '../../../constants/dummy'
 
 export interface FindFriendsScreenProps {
   navigation: NavigationParams

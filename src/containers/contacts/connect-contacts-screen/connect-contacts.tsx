@@ -8,7 +8,7 @@ import Cell from './connect-contacts.cell'
 import TopArea from './connect-contacts.top-area'
 import * as screenStyles from './connect-contacts.styles'
 
-import { users } from '../../../config/dummy'
+import { users } from '../../../constants/dummy'
 
 export interface ConnectContactsScreenProps {
   navigation: NavigationParams

@@ -7,8 +7,8 @@ import SegmentedControlTab from 'react-native-segmented-control-tab'
 
 import Cell from './history.cell'
 import TopArea from './history.top-area'
-import { history } from '../../../config/dummy'
-import { History } from '../../../config/types'
+import { history } from '../../../constants/dummy'
+import { History } from '../../../constants/types'
 import { Text } from '../../../components'
 
 import * as screenStyles from './history.styles'

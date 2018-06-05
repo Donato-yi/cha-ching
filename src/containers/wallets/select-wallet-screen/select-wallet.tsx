@@ -11,9 +11,9 @@ import { connect } from 'react-redux'
 
 import TopArea from './select-wallet.top-area'
 import { Text } from '../../../components'
-import { COIN_INFO } from '../../../config/coins'
-import { wallets } from '../../../config/dummy'
-import { Wallet } from '../../../config/types'
+import { COIN_INFO } from '../../../constants/coins'
+import { wallets } from '../../../constants/dummy'
+import { Wallet } from '../../../constants/types'
 import AuthActions from '../../../actions/auth'
 import * as screenStyles from './select-wallet.styles'
 

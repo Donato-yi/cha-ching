@@ -10,7 +10,7 @@ import Cell from './contacts.cell'
 import Header from './contacts.section-header'
 import ScrollBar from './contacts.scroll-bar'
 
-import { users } from '../../../config/dummy'
+import { users } from '../../../constants/dummy'
 
 export interface ContactsScreenProps {
   navigation: NavigationParams

@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Feather'
 import { TextField } from 'react-native-material-textfield'
 
 import { Text } from '../../../components'
-import { users } from '../../../config/dummy'
+import { users } from '../../../constants/dummy'
 import * as screenStyles from './transfer.styles'
 import { colors } from '../../../themes'
 

@@ -11,9 +11,9 @@ import { connect } from 'react-redux'
 
 import TopArea from './confirm-transaction.top-area'
 import { Text } from '../../../components'
-import { wallets } from '../../../config/dummy'
-import { COIN_INFO } from '../../../config/coins'
-import { Wallet } from '../../../config/types'
+import { wallets } from '../../../constants/dummy'
+import { COIN_INFO } from '../../../constants/coins'
+import { Wallet } from '../../../constants/types'
 import AuthActions from '../../../actions/auth'
 import * as screenStyles from './confirm-transaction.styles'
 

@@ -10,8 +10,8 @@ import { NavigationParams } from 'react-navigation'
 import { connect } from 'react-redux'
 
 import { Text } from '../../../components'
-import { topCoins } from '../../../config/dummy'
-import { COIN_INFO } from '../../../config/coins'
+import { topCoins } from '../../../constants/dummy'
+import { COIN_INFO } from '../../../constants/coins'
 import TopArea from './profile.top-area'
 import * as screenStyles from './profile.styles'
 

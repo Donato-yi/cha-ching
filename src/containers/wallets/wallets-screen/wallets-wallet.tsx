@@ -5,9 +5,9 @@ import Icon from 'react-native-vector-icons/Feather'
 import * as screenStyles from './wallets.styles'
 import { Text } from '../../../components'
 import { colors } from '../../../themes'
-import { COIN_INFO } from '../../../config/coins'
-import { Wallet } from '../../../config/types'
-import { coinToUSDConversionRate } from '../../../config/dummy'
+import { COIN_INFO } from '../../../constants/coins'
+import { Wallet } from '../../../constants/types'
+import { coinToUSDConversionRate } from '../../../constants/dummy'
 
 interface WalletProps {
   navigateTo: (route: string, transition?: string) => void
