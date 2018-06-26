@@ -23,7 +23,6 @@ export const SlideToRightTransition = (index, position) => {
 }
 
 export const SlideToLeftTransition = (index, position) => {
-  console.log(index)
   const inputRange = [index - 1, index, index + 0.99, index + 1]
 
   const translateX = position.interpolate({
