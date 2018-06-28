@@ -46,10 +46,10 @@ export const logoImg: ImageStyle = {
 }
 
 export const loginFacebook: ViewStyle = {
-  width: '80%',
-  height: 40,
+  width: '100%',
   justifyContent: 'center',
   backgroundColor: '#3b5998',
+  marginHorizontal: 20,
   borderRadius: 8,
 }
 

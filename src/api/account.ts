@@ -17,7 +17,7 @@ export const updateProfile = ({ userId, firstName, lastName, username }) => {
 //   return API.request( `/account/addFriendsFromFacebook/${uid}`, 'POST' )
 // }
 
-export const find = ({ userId, searchContent }) => {
+export const searchFriends = ({ userId, searchContent }) => {
   return API.request(`/account/find/${userId}`, 'POST', { searchContent })
 }
 

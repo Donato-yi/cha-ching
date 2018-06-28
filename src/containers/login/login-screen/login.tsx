@@ -1,22 +1,31 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { TouchableOpacity, View, Image } from 'react-native'
 import { NavigationParams } from 'react-navigation'
-import { connect } from 'react-redux'
 
 import { Text } from '../../../components'
+import FBLoginButton from '../../../components/facebook-button'
 import TopArea from './login.top-area'
-import AuthActions from '../../../actions/auth'
+
+import { loginWithFacebook } from '../login.actions'
+import { logout } from '../../settings/settings.actions'
+
+import FBManager from '../../../services/facebook'
+
 import * as screenStyles from './login.styles'
 
 export interface LoginScreenProps {
   navigation: NavigationParams
+  loginWithFacebook: (email: string) => void
+  logout: () => void
 }
 
 export interface LoginScreenState {
   isBusy: boolean
 }
 
-class Login extends React.Component<LoginScreenProps, LoginScreenState> {
+class Login extends React.PureComponent<LoginScreenProps, LoginScreenState> {
   constructor(props) {
     super(props)
     this.state = { isBusy: false }
@@ -41,6 +50,14 @@ class Login extends React.Component<LoginScreenProps, LoginScreenState> {
     }
   }
 
+  onLoginFinished = () => {
+    this.props.loginWithFacebook(FBManager.email)
+  }
+
+  onLogoutFinished = () => {
+    this.props.logout()
+  }
+
   render() {
     return (
       <View style={screenStyles.ROOT}>
@@ -48,12 +65,10 @@ class Login extends React.Component<LoginScreenProps, LoginScreenState> {
         <TopArea navigateTo={this.navigateTo} />
         <Image style={screenStyles.logoImg} source={require('../../../assets/logo.png')} />
         <View style={{ flex: 1 }} />
-        <TouchableOpacity
-          style={screenStyles.loginFacebook}
-          onPress={() => this.navigateTo('dashboardStack')}
-        >
-          <Text text="FACEBOOK LOGIN" style={screenStyles.text.facebook} />
-        </TouchableOpacity>
+        <FBLoginButton
+          onLoginFinished={this.onLoginFinished}
+          onLogoutFinished={this.onLogoutFinished}
+        />
         <TouchableOpacity
           style={screenStyles.loginEmail}
           onPress={() => this.navigateTo('emailLogin', 'slideToLeft', 'push')}
@@ -67,6 +82,13 @@ class Login extends React.Component<LoginScreenProps, LoginScreenState> {
 
 const mapStateToProps = state => ({})
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      loginWithFacebook,
+      logout,
+    },
+    dispatch,
+  )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

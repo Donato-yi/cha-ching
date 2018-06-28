@@ -21,3 +21,7 @@ export const transfer = ({
 export const getTransactionHistory = ({ userId }) => {
   return API.request(`/transaction/hisotry/${userId}`, 'GET')
 }
+
+export const getCurrencies = ({}) => {
+  return API.request(`/transaction/currencies`, 'GET')
+}

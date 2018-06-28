@@ -1,6 +1,6 @@
-import { put, call } from 'redux-saga/effects'
+import { put, call, take, fork } from 'redux-saga/effects'
 
-import { asyncAction } from './asyncAction'
+import { asyncAction, ASYNC_ACTION_TYPE } from './asyncAction'
 
 /**
  * Reusable asynchronous action flow
@@ -13,4 +13,11 @@ export function* async(action, apiFn, payload) {
   const { response, error } = yield call(apiFn, payload)
   if (response) yield put(async.success(response))
   else yield put(async.failure(error))
+}
+
+export function* asyncSaga(asyncActionType: ASYNC_ACTION_TYPE, apiFn) {
+  while (true) {
+    const action = yield take(asyncActionType.REQUEST)
+    yield fork(async, action, apiFn, { ...action.payload })
+  }
 }

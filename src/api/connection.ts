@@ -1,6 +1,6 @@
 import API from './api'
 
-export const getContacts = ({ userId }) => {
+export const getConnections = ({ userId }) => {
   return API.request(`/connection/${userId}`, 'GET')
 }
 

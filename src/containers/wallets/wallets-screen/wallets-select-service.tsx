@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { merge } from 'ramda'
 
 import { Text } from '../../../components'
-import CurrencyActions from '../../../actions/currency'
+import CurrencyActions from '../../../actions/currencies'
 
 import { Wallet, ExchangeService } from '../../../constants/types'
 import { COIN_INFO } from '../../../constants/coins'
